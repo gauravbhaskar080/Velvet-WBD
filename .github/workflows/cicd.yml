@@ -17,7 +17,7 @@ jobs:
           node-version: '14' # Corrected Node.js version to a valid one
       - name: Install dependencies
         run: npm install 
-      env:
+    env:
         CI: true
         
   build-and-deploy-frontend:
