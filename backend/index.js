@@ -14,14 +14,14 @@ const sellerRoute = require("./routes/sellerRoutes");
 const customerRoute = require("./routes/customerRoutes");
 
 // app.use(helmet());
-app.use(cors());
-app.use(
-  cors({
-    origin: "http://localhost:3000",
-    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-    credentials: true,
-  })
-);
+
+const corsOptions = {
+  origin: ["https://velvet-wbd.vercel.app", "http://localhost:3000"], // Add your frontend URL(s) here
+  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+  credentials: true,
+};
+
+app.use(cors(corsOptions));
 
 require("dotenv").config();
 const MONGO_URI = process.env.MONGO_URI;
