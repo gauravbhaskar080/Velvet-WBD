@@ -100,7 +100,7 @@ export default function AdminHomePage() {
     const fetchData = async () => {
       try {
         const response = await fetch(`${BASE_URL}/velvethomes/admin/home`, {
-          method: "GET",
+          method: "POST",
         });
         const json = await response.json();
         if (json.success) {
