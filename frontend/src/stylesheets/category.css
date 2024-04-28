@@ -1,0 +1,102 @@
+.head{
+    color: #4c2b1c;
+    font-size: 50px;
+    text-align: center;
+    text-decoration: underline;
+    width: 200px;
+    margin: 70px auto;
+    margin-bottom: 10px;
+}
+.head-link{
+    color: #4c2b1c;
+}
+.container{
+    width: 60%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+.bigcon{
+    display: flex;
+    margin-bottom: 50px;
+}
+.advertise{
+    position: relative;
+    width: 40%;
+    height: 590px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.adver{
+    border-radius: 20px;
+    width: 100%;
+    background-color: #333;
+    height: 95%;
+} 
+
+.overlay{
+    position: absolute;
+    left: 100%;
+    right: 0;
+    /* background-color: #996633; */
+    background-color: rgba(169, 169, 169, 0.762);
+    overflow: hidden;
+    width: 0;
+    height: 50%;
+    transition: 0.5s ease;
+    border-top-left-radius: 200px;
+    border-bottom-left-radius: 200px;
+}
+.overlay-left{
+    position: absolute;
+    left: 0;
+    right: 100%;
+    background-color: rgba(169, 169, 169, 0.762);
+    overflow: hidden;
+    width: 0;
+    height: 50%;
+    transition: 0.5s ease;
+    border-top-right-radius: 200px;
+    border-bottom-right-radius: 200px;
+}
+.advertise:hover .overlay{
+    width: 90%;
+    left: 10%;
+}
+.advertise:hover .overlay-left{
+    width: 90%;
+    right: 10%;
+}
+.text{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap;
+    color: rgb(4, 4, 4);
+    font-size: 30px;
+    position: absolute;
+    overflow: hidden;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    font-family: monospace;
+}
+.adver-left{
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+.adver-right{
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+@media(max-width: 1220px){
+    .advertise{
+        display: none;
+    }
+    .container{
+        width: 100%;
+    }
+}

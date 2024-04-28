@@ -1,0 +1,99 @@
+.vidcon{
+    height: 500px;
+}
+#homevideo{
+    position:absolute;
+    right: 0;
+    bottom: 0;
+    top: 85px;
+    z-index: -1;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    transition: 0.5s;
+}
+h1{
+    color: #D21312;
+    text-align: center;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2em;
+}
+.quotes{
+    width: 70%;
+    background-color: #ffffff4f;
+    border-radius: 20px;
+}
+@media (max-width: 1450px) {
+    .vidcon{
+        height: 400px;
+    }
+    h1{
+        margin-bottom: 8%;
+    }
+}
+@media (max-width: 1300px) {
+    .vidcon{
+        height: 350px;
+    }
+}
+@media (max-width: 1200px) {
+    .vidcon{
+        height: 300px;
+    }
+}
+@media (max-width: 1100px) {
+    .vidcon{
+        height: 250px;
+    }
+}
+@media (max-width: 1000px) {
+    .vidcon{
+        height: 275px;
+    }
+}
+@media (max-width: 900px) {
+    .vidcon{
+        height: 250px;
+    }
+    .quotes{
+        width: 90%;
+    }
+}
+@media (max-width: 800px) {
+    .vidcon{
+        height: 250px;
+    }
+}
+@media (max-width: 700px) {
+    .vidcon{
+        height: 100px;
+    }
+    h1{
+        margin-bottom: 10%;
+    }
+    .quotes{
+        width: 100%;
+        border-radius: 2px;
+    }
+}
+@media (max-width: 600px) {
+    .vidcon{
+        height: 100%;
+    }
+    #homevideo{
+        position: relative;
+    }
+    h1{
+        display: none;
+    }
+}
+.HomeElementsMain{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+}

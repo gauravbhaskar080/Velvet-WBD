@@ -1,0 +1,118 @@
+.adminLoginPage{
+    height: 750px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-repeat: no-repeat no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+.LoginFormAdmin{
+    border-radius: 20px;
+    width: 60%;
+    height: 75%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); 
+}
+
+.ImgBack{
+    width: 43%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #555;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    font-size: 2rem;
+    color: #fff;
+    text-align: center;
+}
+
+.LoginFormCon{
+    width: 55%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    margin-right: 10px;
+}
+
+.FormBtnHead{
+    width: 180px;
+    height: 60px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 100;
+    background-color: #666;
+    color: white;
+}
+
+.FormAdminHead{
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+.AdminLogin{
+    margin-top: 15px;
+    background-color: #bfbfbf;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 5px;
+    border: 0.5px solid #999; 
+
+}
+.input-company-wrapper{
+    width: 90%;
+    margin-top: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+}
+.input-clf-label{
+    font-size: 1.3rem;
+    font-weight: 100;
+    font-family: 'Open Sans', sans-serif;
+    margin-bottom: 2px;
+    color: #553939;
+}
+.login-company-input{
+    width: 90%;
+    height: 25px;
+    background-color: #ffffffae;
+    border: none;
+    font-size: larger;
+    border-radius: 1px;
+    margin-top: 5px;
+}
+.login-company-input:focus{
+    outline: none;
+}
+.cfl-pass:focus{
+    border-right: none;
+}
+.login-company-input::after{
+    border: none;
+}
+.input-border{
+    border: none;
+}
+.required-span{
+    color: red;
+}
+.LoaderGif{
+    height: 60px;
+    width: 60px;
+}

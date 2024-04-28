@@ -1,0 +1,372 @@
+.CartWrapper{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    margin-bottom: 50px;
+}
+.CartMain{
+    width: 70%;
+    margin-top: 50px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    color: #321E1E;
+}
+.CartHead {
+    width: 90%;
+    height: 60px;
+    font-size: xx-large;
+    background-color: #000; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    color: #fff; 
+    border-radius: 15px 15px 15px 15px;
+}
+.CartItem{
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.CartCard {
+    width: 100%;
+    margin-top: 20px;
+    background-color: #807f7f70;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 250px;
+    border-radius: 20px;
+    box-shadow: 0 10px 14px rgba(0, 0, 0, 0.3); /* Increased blur and more prominent shadow */
+    transition: box-shadow 0.3s ease; /* Smooth transition effect */
+}
+
+.CartCard:hover {
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3); /* Shadow effect on hover */
+}
+
+.CartImgWrapper{
+    width: 30%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* .CartImg{
+    cursor: pointer;
+    width: 55%;
+    height: 60%;
+    border: 1px solid #321E1E;
+} */
+
+.CartImg {
+    cursor: pointer;
+    width: 55%;
+    height: 60%;
+    border: 1px solid #321E1E;
+    border-radius: 10px; /* Rounded corners for a fancy look */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition effect */
+}
+
+.CartImg:hover {
+    transform: scale(1.1); /* Enlarge image on hover for a fancy effect */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+}
+
+/* .CartCardMain{
+    width: 65%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+}
+.CartCardMainTitle{
+    cursor: pointer;
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #321E1E;
+    font-size: x-large;
+    text-align: center;
+    font-weight: 600;
+    height: 70px;
+}
+.CartCardMainBody{
+    width: 70%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 50px;
+}
+.CartCardMainBodyHead{
+    font-size: x-large;
+    color: #321E1E;
+}
+.CartCardMainBodyValue{
+    font-size: x-large;
+    color: #321E1E;
+    margin-left: 20px;
+}
+.CartCardMainBodyInput{
+    width: 120px !important;
+    height: 30px;
+    text-align: end;
+    margin-left: 20px;
+    background-color: #00DFA2 !important;
+}
+.CartCardMainBodyBtn{
+    width: 150px;
+    height: 45px;
+    border-radius: 5px;
+    background-color: #321E1E;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    cursor: pointer;
+    font-size: larger;
+}
+.CartCardMainBodyBtn:hover{
+    background-color: #321e1eeb;
+} */
+
+.CartCardMain {
+    width: 65%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px; 
+}
+
+
+.CartCardMainTitle {
+    margin-bottom: 10px; 
+    font-size: x-large;
+}
+
+.CartCardMainBody {
+    width: 100%; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px; 
+}
+
+.CartCardMainBodyHead,
+.CartCardMainBodyValue {
+    font-size: x-large;
+}
+
+.CartCardMainBodyInput {
+    width: 80px; 
+    height: 30px;
+    text-align: end;
+}
+
+.CartCardMainBodyBtn{
+    width: 150px;
+    height: 45px;
+    border-radius: 5px;
+    background-color: #321E1E;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    cursor: pointer;
+    font-size: larger;
+}
+
+
+
+
+.CartBill{
+    width: 25%;
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.CartBillTitle{
+    width: 100%;
+    background-color: #020202;
+    color: #fff;
+    font-weight:  bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    font-size: xx-large;
+    border-radius: 15px 15px 15px 15px;
+}
+
+.CartBillDetails{
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    padding-left: 15px;
+    height: 50px;
+    align-items: center;
+}
+
+.CartBillDetailsTitle{
+    font-size: x-large;
+    color: #321E1E;
+}
+.CartBillDetailsValue{
+    font-size: xx-large;
+    color: #321E1E;
+    margin-left: 10px;
+}
+/* .CartBillWrap{
+    width: 100%;
+    margin-top: 20px;
+    background-color: #E9FFC2;
+} */
+
+.CartBillWrap {
+    width: 100%;
+    margin-top: 20px;
+    background-color: #807f7f70; 
+    border: 1px solid #111110; 
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    padding: 20px; 
+    transition: transform 0.3s ease; 
+}
+
+/* .CartBillDetail{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    background-color: #E9FFC2;
+    height: 60px;
+} */
+
+.CartBillDetails {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    /* background-color: #807f7f70;  */
+    border-radius: 15px; 
+    padding: 20px; 
+}
+
+.CartBillDetail {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    background-color: #807f7f70; 
+    border: 1px solid black; 
+    border-radius: 15px; 
+    padding: 20px; 
+}
+.CartBillDetailsValue {
+    font-size: x-large;
+    color: #3c3434;
+    margin-left: 10px;
+    font-weight: bold; 
+}
+.CartBillDetailsTitle{
+    font-size: x-large;
+}
+/* .CartBillDetailsInput{
+    width: 70%;
+    height: 30px;
+    font-size: x-large;
+    border: none;
+    text-align: center;
+    border-radius: 3px;
+    background-color: #fff;
+    color: #321E1E;
+    border: 1px solid #321E1E;
+} */
+
+.CartBillDetailsInput {
+    width: 70%;
+    height: 40px; 
+    font-size: large;
+    border: none;
+    text-align: center;
+    border-radius: 5px; 
+    background-color: #f9f9f9; 
+    color: #333; 
+    border: 1px solid #ddd;
+    transition: border-color 0.3s ease; 
+}
+.CartBillDetailsInput:focus{
+    outline: none;
+}
+.CartBillDetailsBtn{
+    width: 20%;
+    height: 33px;
+    border-radius: 5px;
+    background-color: #1a1919;
+    margin-left: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    cursor: pointer;
+}
+.CartBillDetailsBtn:hover{
+    background-color: #444343eb;
+}
+.CartBillBtnWrapper{
+    width: 98%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 0px;
+    height: 60px;
+}
+/* .CartBillBtn{
+    width: 200px;
+    height: 40px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #321E1E;
+    cursor: pointer;
+    color: #fff;
+    font-size: larger;
+} */
+
+.CartBillBtn {
+    width: 200px;
+    height: 45px; 
+    border-radius: 8px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000000;
+    cursor: pointer;
+    color: #fff;
+    font-size: larger;
+    transition: background-color 0.3s ease; 
+}
+.CartBillBtn:hover{
+    background-color: #4d4949eb;
+}
+.coupon-code-message{
+    font-size: large;
+    color: #eee3d9;
+    margin-top: 5px;
+}

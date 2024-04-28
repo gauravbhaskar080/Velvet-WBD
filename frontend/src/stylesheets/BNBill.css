@@ -1,0 +1,229 @@
+
+.BNB-main{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.BNB-head{
+    width: 80%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 100px;
+    height: 60px;
+
+    color: #fff;
+    font-size: x-large;
+}
+.BNB-head-s{
+    width: 7%;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-right: 1px solid white;
+}
+.BNB-head-p{
+    width: 45%;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.BNB-head-r{
+    width: 15%;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.BNB-body{
+    width: 80%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    height: 190px;
+    margin-top: 30px;
+    font-size: x-large;
+    background-color: #CEE5D0;
+}
+.BNB-body-s{
+    width: 5%;
+    margin-top: 30px;
+}
+.BNB-body-p{
+    width: 43%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    margin-top: 30px;
+}
+.BNB-body-p-img{
+    width: 23%;
+    height: 100px;
+
+    margin-right: 20px;
+}
+.BNB-body-p-title{
+    width: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.BNB-body-r{
+    width: 13%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+}
+.BNB-body-r-input{
+    border-radius: 2px !important;
+    width: 60%;
+    text-align: end;
+    background-color: #888 !important;
+}
+.BNB-body-in{
+    flex-direction: column;
+}
+.BNB-alert{
+    font-size: large;
+    margin-top: 20px;
+    color: red;
+}
+.BNB-total{
+    width: 80%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 20px;
+    height: 60px;
+    background-color: #CEE5D0;
+    color: #7E1717;
+}
+.BNB-total-head{
+    width: 80%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: xx-large;
+}
+.BNB-total-value{
+    width: 18%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+}
+.BNB-btn-con{
+    width: 80%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 20px;
+}
+.BNB-btn{
+    width: 15%;
+    background-color: #7E1717;
+    color: #fff;
+    border-radius: 5px;
+    height: 45px;
+    font-size: x-large;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    
+    margin-bottom: 100px;
+}
+.BNB-btn:hover{
+    background-color: #7e1717d1;
+}
+.BNBdc{
+    width: 250px;
+    height: 30px;
+    border: none;
+    font-size: x-large;
+    border-radius: 2px;
+    padding: 5px;
+    text-align: center;
+}
+.BNBdc:focus{
+    outline: none;
+}
+.BNBdcsearch{
+    width: 80px;
+    height: 40px;
+    background-color: #7E1717;
+    margin-left: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #fff;
+    font-size: larger;
+}
+.coupon-code-messag{
+    width: 80%;
+    text-align: right;
+    margin-top: 10px;
+    font-size: larger;
+    color: #3D0C11;
+}
+/* ... Your existing styles ... */
+
+.BNB-table {
+    width: 80%;
+    border-collapse: collapse;
+    margin-top: 100px;
+  }
+  
+  .BNB-table th, .BNB-table td {
+    
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .BNB-table th{
+    font-weight: bolder;
+    font-size: larger;
+  }
+
+  .BNB-product {
+    display: flex;
+    align-items: center;
+  }
+  
+  .BNB-product-img {
+    width: 200px;
+    height: 200px;
+    margin-right: 20px;
+  }
+  
+  .BNB-product-title {
+   font-size: large;
+    text-align: center;
+  }
+  
+  .BNB-quantity {
+    flex-direction: column;
+  }
+  
+  .BNB-quantity-input {
+    border-radius: 2px !important;
+    width: 60px;
+  }
+  
+  .BNB-alert {
+    font-size: large;
+    margin-top: 10px;
+    color: red;
+  }
+  
+

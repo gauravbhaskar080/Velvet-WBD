@@ -1,0 +1,151 @@
+.CustomerNavBarCon{
+    width: 100%;
+    height: 125px;
+    background-color: #8F4426;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+}
+.NavBarMain{
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-start;
+}
+.CustomerNavBarLogo{
+    height: 100px;
+    width: 275px;
+    display: flex;
+    justify-content: center;
+    background-color: #BA704F;
+    align-items: center;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+.navbarlogoimg{
+    width: 80px;
+    height: 80px;
+    border-radius: 5px;
+}
+.link{
+    text-decoration: none;
+}
+.navbarlogotext{
+    height: 100%;
+    font-size: 30px;
+    width: 175px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #F6F4EB;
+    text-decoration: underline;
+}
+.CustomerNavBarCats{
+    width: 600px;
+    height: 80%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 10px;
+}
+.CustomerNavBarCatsText{
+    font-size: x-large;
+    color: #fff;
+    border-radius: 5px;
+}
+.CustomerNavBarCatsTextUnderline{
+    height: 2px;
+    width: 0;
+    background-color: #fff;
+    border-radius: 15px;
+    transition: width 1s;
+}
+.link:hover .CustomerNavBarCatsTextUnderline{
+    width: 100%;
+}
+.CustomerNavBarSubCatCon{
+    width: 100%;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    z-index: 9999999;
+}
+.CustomerNavBarSubCat{
+    width: 900px;
+    height: 230px;
+    background-color: #a35232;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-bottom: 0px;
+    transition: margin-bottom 1s;
+}
+.CustomerNavBarSubCatMain{
+    width: 60%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.CustomerNavBarSubCatImage{
+    width: 25%;
+    height: 80%;
+}
+.CustomerNavBarSubCatImage img{
+    width: 100%;
+    height: 100%;
+    border: 3px double gold;
+}
+.CustomerNavBarSubCatMainHead{
+    width: 100%;
+    height: 50px;
+    font-size: x-large;
+    color: silver;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    font-weight: 400;
+}
+.CustomerNavBarSubCatMainHeadSub{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.CustomerNavBarSubCatMainBody{
+    width: 100%;
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.link-1{
+    width: 50%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 25%;
+    text-align: start;
+}
+.CustomerNavBarSubCatMainBodyElement{
+    font-size: large;
+    color: #eee;
+}
+.CustomerNavBarSubCatMainBodyElement:hover{
+    color: #ddd;
+}
+.CustomerNavBarBtns{
+    width: 570px;
+    height: 100%;
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
