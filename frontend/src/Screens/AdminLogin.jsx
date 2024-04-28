@@ -3,6 +3,7 @@ import "../stylesheets/AdminLogin.css";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { loginAdmin } from "../features/login/loginSlice";
+import { BASE_URL } from "../api";
 
 export default function AdminLogin() {
   const navigate = useNavigate();
@@ -47,7 +48,7 @@ export default function AdminLogin() {
     );
     if(val){
       const response = await fetch(
-        "http://localhost:5000/velvethomes/admin/login",
+        `${BASE_URL}/velvethomes/admin/login`,
         {
           method: "POST",
           headers: {

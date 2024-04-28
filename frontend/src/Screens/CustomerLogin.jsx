@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import "../stylesheets/companyLogin.css";
 import { useDispatch } from "react-redux";
 import { loginCustomer } from "../features/login/loginSlice";
+import { BASE_URL } from "../api";
 const CustomerLogin = ({show}) => {
   // Variable To Redirect To any Page
   let navigate = useNavigate();
@@ -103,7 +104,7 @@ const CustomerLogin = ({show}) => {
       const val = Object.values(isValidInput).every((value) => value === true);
   
       if (val) {
-        const response = await fetch("http://localhost:5000/velvethomes/customer/login", {
+        const response = await fetch(`${BASE_URL}/velvethomes/customer/login`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -182,7 +183,7 @@ const CustomerLogin = ({show}) => {
     if (val) {
       setSignupButton(false);
       const response = await fetch(
-        "http://localhost:5000/velvethomes/customer/signup",
+        `${BASE_URL}/velvethomes/customer/signup`,
         {
           method: "POST",
           headers: {

@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import "../stylesheets/companyLogin.css";
 import { useDispatch } from "react-redux";
 import { loginSeller } from "../features/login/loginSlice";
+import { BASE_URL } from "../api";
 
 export default function Company_Login({ show }) {
   // Variable To Redirect To any Page
@@ -106,7 +107,7 @@ export default function Company_Login({ show }) {
     const val = Object.values(isValidInput).every((value) => value === true);
     if (val) {
       const response = await fetch(
-        "http://localhost:5000/velvethomes/seller/login",
+        `${BASE_URL}/velvethomes/seller/login`,
         {
           method: "POST",
           headers: {
@@ -178,7 +179,7 @@ export default function Company_Login({ show }) {
     if (val) {
       setSignupButton(false);
       const response = await fetch(
-        "http://localhost:5000/velvethomes/seller/createcomp",
+        `${BASE_URL}/velvethomes/seller/createcomp`,
         {
           method: "POST",
           headers: {

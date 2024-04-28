@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import logo from "./logo.jpeg"
 import "../stylesheets/AdminHomePage.css"
 import loader from '../Pictures/loader.gif'
+import { BASE_URL } from '../api';
 
 
 export default function AdminAllCustomers() {
@@ -29,7 +30,7 @@ export default function AdminAllCustomers() {
 
     const fetchData = async () => {
         const response = await fetch(
-            "http://localhost:5000/velvethomes/admin/allcustomers",
+            `${BASE_URL}/velvethomes/admin/allcustomers`,
             {
                 method: "POST",
 

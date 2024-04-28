@@ -4,13 +4,14 @@ import '../stylesheets/home.css'
 import HomeRightDesign from '../Components/HomeRightDesign'
 import HomeLeftDesign from '../Components/HomeLeftDesign'
 import CustomerNavBar from '../Components/CustomerNavBar'
+import { BASE_URL } from '../api'
 
 export default function Home() {
   const [prods,setProds] = useState([]);
   const [showLoader,setShowLoader] = useState(true);
   const fetchData = async()=>{
     const response = await fetch(
-      "http://localhost:5000/velvethomes/customer/home",
+      `${BASE_URL}/velvethomes/customer/home`,
       {
         method: "POST",
         headers: {

@@ -5,6 +5,7 @@ import logo from "./logo.jpeg"
 import "../stylesheets/AdminHomePage.css"
 import SalesChart from './SalesChart';
 import loader from '../Pictures/loader.gif'
+import { BASE_URL } from '../api';
 
 export default function AdminHomePage() {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -37,7 +38,7 @@ export default function AdminHomePage() {
     const handleSubmit = async (evt) => {
         evt.preventDefault();
         const response = await fetch(
-            "http://localhost:5000/velvethomes/admin/discountcode",
+            `${BASE_URL}/velvethomes/admin/discountcode`,
             {
                 method: "POST",
                 headers: {
@@ -66,7 +67,7 @@ export default function AdminHomePage() {
     const deleteCode = async (id) => {
         alert(id)
         const response = await fetch(
-            "http://localhost:5000/velvethomes/admin/deletediscountcode",
+            `${BASE_URL}/velvethomes/admin/deletediscountcode`,
             {
                 method: "POST",
                 headers: {
@@ -84,7 +85,7 @@ export default function AdminHomePage() {
     }
     const fetchData = async () => {
         const response = await fetch(
-            "http://localhost:5000/velvethomes/admin/home",
+            `${BASE_URL}/velvethomes/admin/home`,
             {
                 method: "POST",
                 // headers: {

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import "../stylesheets/ShowProduct.css";
 import CustomerNavBar from "../Components/CustomerNavBar";
+import { BASE_URL } from "../api";
 
 export default function ShowProduct() {
   const navigate = useNavigate();
@@ -26,7 +27,7 @@ export default function ShowProduct() {
 
   const addToCart = async function () {
     const response = await fetch(
-      "http://localhost:5000/velvethomes/customer/addtocart",
+      `${BASE_URL}/velvethomes/customer/addtocart`,
       {
         method: "POST",
         headers: {
@@ -48,7 +49,7 @@ export default function ShowProduct() {
 
   const fetchData = async function () {
     const response = await fetch(
-      "http://localhost:5000/velvethomes/customer/productdetails",
+      `${BASE_URL}/velvethomes/customer/productdetails`,
       {
         method: "POST",
         headers: {

@@ -1,5 +1,6 @@
 
 import React, { useState, useEffect } from 'react'
+import { BASE_URL } from '../api';
 import TypingEffect from "../Components/TypingEffect";
 import "../stylesheets/CompanyHomePage.css"
 import logo from "./logo.jpeg"
@@ -40,7 +41,7 @@ export default function CompanyHomePage() {
     };
     const fetchData = async function () {
         const response = await fetch(
-            "http://localhost:5000/velvethomes/seller/home",
+            `${BASE_URL}/velvethomes/seller/home`,
             {
                 method: "POST",
                 headers: {

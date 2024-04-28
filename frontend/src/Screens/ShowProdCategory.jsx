@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import ImageSlider from '../Components/ImageSlider';
 import SPCcard from '../Components/SPCcard';
 import CustomerNavBar from '../Components/CustomerNavBar'
+import { BASE_URL } from '../api';
 
 export default function ShowProdCategory() {
   const { id } = useParams();
@@ -10,7 +11,7 @@ export default function ShowProdCategory() {
   const [subCat,setSubCat] = useState([]);
   const fetchData = async function () {
     const response = await fetch(
-      "http://localhost:5000/velvethomes/customer/showallcat",
+      `${BASE_URL}/velvethomes/customer/showallcat`,
       {
         method: "POST",
         headers: {

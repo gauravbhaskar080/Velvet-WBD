@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import "../stylesheets/ShowProdSubCat.css"
 import SAECard from '../Components/SAECard';
 import CustomerNavBar from '../Components/CustomerNavBar'
+import { BASE_URL } from '../api';
 
 export default function ShowProdSubCat() {
     const { id } = useParams();
@@ -20,7 +21,7 @@ export default function ShowProdSubCat() {
 
     const fetchData = async function () {
         const response = await fetch(
-            "http://localhost:5000/velvethomes/customer/showallsubcat",
+            `${BASE_URL}/velvethomes/customer/showallsubcat`,
             {
                 method: "POST",
                 headers: {

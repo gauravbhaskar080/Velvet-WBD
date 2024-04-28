@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "../stylesheets/PinfoCustomer.css";
 import CustomerNavBar from "../Components/CustomerNavBar";
 import { json } from "react-router-dom";
+import { BASE_URL } from "../api";
 
 export default function PinfoCustomer() {
   const [cust, setCust] = useState({
@@ -27,7 +28,7 @@ export default function PinfoCustomer() {
       const username = localStorage.getItem("customerUsername");
       try {
         const res = await fetch(
-          `http://localhost:5000/velvethomes/customer/customerProfile/upload/${username}`,
+          `${BASE_URL}/velvethomes/customer/customerProfile/upload/${username}`,
           {
             method: "POST",
             body: data,
@@ -50,7 +51,7 @@ export default function PinfoCustomer() {
   const fetchData = async () => {
     try {
       const response = await fetch(
-        "http://localhost:5000/velvethomes/customer/pinfo",
+        `${BASE_URL}/velvethomes/customer/pinfo`,
         {
           method: "POST",
           headers: {

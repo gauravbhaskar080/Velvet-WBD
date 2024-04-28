@@ -15,6 +15,7 @@ import {
 } from '@mui/material';
 import '../stylesheets/BNBill.css';
 import CustomerNavBar from "../Components/CustomerNavBar";
+import { BASE_URL } from '../api.js';
 
 export default function BNBill() {
   const navigate = useNavigate();
@@ -38,7 +39,7 @@ export default function BNBill() {
       setMessage('Please Enter Code To Be Applied');
     } else {
       const response = await fetch(
-        'http://localhost:5000/velvethomes/customer/validcode',
+        `${BASE_URL}/velvethomes/customer/validcode`,
         {
           method: 'POST',
           headers: {
@@ -64,7 +65,7 @@ export default function BNBill() {
 
   const placeOrder = async function () {
     const response = await fetch(
-      'http://localhost:5000/velvethomes/customer/placeorder',
+      `${BASE_URL}/velvethomes/customer/placeorder`,
       {
         method: 'POST',
         headers: {
@@ -89,7 +90,7 @@ export default function BNBill() {
 
   const fetchData = async function () {
     const response = await fetch(
-      'http://localhost:5000/velvethomes/customer/productdetails',
+      `${BASE_URL}/velvethomes/customer/productdetails`,
       {
         method: 'POST',
         headers: {
