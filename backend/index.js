@@ -8,15 +8,12 @@ const cors = require("cors");
 const helmet = require("helmet");
 
 const Customer = require("./models/Customer");
-const multer = require("multer");
 const adminRoute = require("./routes/adminRoutes");
 const sellerRoute = require("./routes/sellerRoutes");
 const customerRoute = require("./routes/customerRoutes");
 
-// app.use(helmet());
-
 const corsOptions = {
-  origin: ["https://velvet-wbd.vercel.app", "http://localhost:3000"], // Add your frontend URL(s) here
+  origin: ["https://velvet-wbd.vercel.app", "http://localhost:3000"],
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
   credentials: true,
 };
@@ -43,65 +40,18 @@ app.get("/", (req, res) => {
   res.send("velvet Homes backend sent this file");
 });
 
-//morgan
-
 const accessLogStream = fs.createWriteStream(
   path.join(__dirname, "access.log"),
   { flags: "a" }
 );
 app.use(morgan("combined", { stream: accessLogStream }));
 
-//route to upload the Image
-
-// const storage = multer.diskStorage({
-//   destination: (req, file, cb) => {
-//     cb(null, "./public/images/");
-//   },
-//   filename: (req, file, cb) => {
-//     cb(null, file.originalname);
-//   },
-// });
-// const uplaod = multer({ storage: storage });
-// app.post(
-//   "/customerProfile/upload/:username",
-//   uplaod.single("file"),
-//   async (req, res) => {
-//     console.log(req.file);
-//     try {
-//       const username = req.params.username;
-//       const imageName = req.file.originalname;
-//       const user = await Customer.findOne({ username: username });
-//       if (username) {
-//         try {
-//           const response = await Customer.findByIdAndUpdate(user._id, {
-//             $set: { photo: imageName },
-//           });
-//           console.log(response);
-//           res.status(200).json("image uploaded");
-//         } catch (error) {
-//           res.status(401).send("Error in updating the profile picture");
-//         }
-//       } else {
-//         res.status(404).json("User does not exist");
-//       }
-//     } catch (error) {
-//       console.error(error);
-//       res.status(500).send("Server Error");
-//     }
-//   }
-// );
-
-// // Access the image
-// app.use(
-//   "/customerProfile/images",
-//   express.static(path.join(__dirname, "/public/images"))
-// );
+// Uncomment the image upload route handlers if necessary
 
 app.use("/velvethomes/customer", customerRoute);
 app.use("/velvethomes/admin", adminRoute);
 app.use("/velvethomes/seller", sellerRoute);
 
-// Error handler middleware
 app.use((err, req, res, next) => {
   console.error(err.stack);
   res.status(500).send("Something went wrong!");
