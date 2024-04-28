@@ -44,7 +44,6 @@ jobs:
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
           vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
           vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
-          vercel-scope: ${{ secrets.VERCEL_SCOPE }}
 
   build-and-deploy-backend:
     name: Build and Deploy Backend to Render
@@ -65,5 +64,3 @@ jobs:
         uses: render-com/action@1.4
         with:
           render-token: ${{ secrets.RENDER_TOKEN }}
-          render-org-slug: ${{ secrets.RENDER_ORG_SLUG }}
-          render-service-id: ${{ secrets.RENDER_SERVICE_ID }}
