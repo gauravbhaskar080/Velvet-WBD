@@ -103,7 +103,7 @@ export default function AdminHomePage() {
           method: "POST",
         });
         const json = await response.json();
-        // console.log(json);
+        console.log(json);
         if (json.success) {
           setCust(json.customer);
           setComp(json.company);
@@ -117,6 +117,7 @@ export default function AdminHomePage() {
           setMostSeller(json.mostSeller);
           setLeastSeller(json.leastSeller);
           setShowLoader(false);
+          console.log("Data Set to Admin homepage")
         } else {
           console.error("Failed to fetch data:", json.error);
         }
