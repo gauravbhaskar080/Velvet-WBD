@@ -103,6 +103,7 @@ export default function AdminHomePage() {
           method: "POST",
         });
         const json = await response.json();
+        // console.log(json);
         if (json.success) {
           setCust(json.customer);
           setComp(json.company);
