@@ -103,20 +103,20 @@ export default function AdminHomePage() {
           method: "POST",
         });
         const json = await response.json();
-        console.log(json);
         if (json.success) {
-          setCust(json.customer);
-          setComp(json.company);
-          setAdmin({
-            totalTurnOver: json.admin.totalBusiness,
-            totalProfit: json.admin.totalProfit,
-          });
-          setSales(json.sales);
-          setShowSales(json.sales.reverse().splice(0, 3));
-          setDc(json.discountcode);
-          setMostSeller(json.mostSeller);
-          setLeastSeller(json.leastSeller);
-          setShowLoader(false);
+            setCust(json.customer);
+            setComp(json.company);
+            setAdmin({
+                totalTurnOver: json.admin.totalBusiness,
+                totalProfit: json.admin.totalProfit
+            })
+            setSales(json.sales)
+            setShowSales(json.sales.reverse().splice(0, 3));
+            setDc(json.discountcode)
+            setMostSeller(json.mostSeller)
+            setLeastSeller(json.leastSeller)
+            setShowLoader(false)
+        
           console.log("Data Set to Admin homepage")
         } else {
           console.error("Failed to fetch data:", json.error);

@@ -113,6 +113,28 @@ export default function Cart() {
       fetchData();
     }
   };
+
+  const placeOrder = async function () {
+    try {
+      const response = await fetch(
+        `${BASE_URL}/stripe/cart-create-checkout-session`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ cartItems: products }), // Send the products in the cart to the backend
+        }
+      );
+      const { url } = await response.json();
+      window.location.href = url; // Redirect to the Stripe checkout page
+    } catch (error) {
+      console.error("Error:", error);
+      // Handle error (e.g., display an error message)
+    }
+  };
+
+
   return (
     <>
       <CustomerNavBar />
@@ -205,7 +227,7 @@ export default function Cart() {
           </div>
           {show && <div className="coupon-code-message">**{message}</div>}
           <div className="CartBillBtnWrapper">
-            <div className="CartBillBtn">Place Order</div>
+            <div className="CartBillBtn" onClick={placeOrder}>Place Order</div>
           </div>
         </div>
       </div>
