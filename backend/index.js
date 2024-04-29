@@ -7,6 +7,30 @@ const fs = require("fs");
 const path = require("path");
 const cors = require("cors");
 const helmet = require("helmet");
+const swaggerUi = require("swagger-ui-express");
+const swaggerJsdoc = require("swagger-jsdoc");
+
+// Swagger options
+const options = {
+  definition: {
+    openapi: '3.0.0',
+    info: {
+      title: 'Velvet Homes API',
+      version: '1.0.0',
+      description: 'API documentation for Velvet Homes backend',
+    },
+    servers: [
+      {
+        url: 'http://localhost:5000',
+      },
+    ],
+  },
+  apis: ['./routes/customerRoutes.js','./routes/adminRoutes.js','./routes/sellerRoutes.js'], // Path to the API routes file(s)
+};
+
+// Initialize Swagger-jsdoc
+const specs = swaggerJsdoc(options);
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
 
 // Import routes
 const adminRoute = require("./routes/adminRoutes");
@@ -68,7 +92,7 @@ app.use((err, req, res, next) => {
 });
 
 // Start the server
-const PORT = process.env.PORT || 5000;
+const PORT = 5000;
 app.listen(PORT, () => {
   console.log(`Listening on port ${PORT}`);
 });

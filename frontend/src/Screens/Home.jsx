@@ -13,7 +13,7 @@ export default function Home() {
     const response = await fetch(
       `${BASE_URL}/velvethomes/customer/home`,
       {
-        method: "POST",
+        method: "GET",
         headers: {
           "Content-Type": "application/json",
         }

@@ -63,7 +63,7 @@ export default function AdminDeliveries() {
         const response = await fetch(
             `${BASE_URL}/velvethomes/admin/deliveries`,
             {
-                method: "POST",
+                method: "GET",
 
             }
         );

@@ -32,7 +32,7 @@ export default function AdminAllCustomers() {
         const response = await fetch(
             `${BASE_URL}/velvethomes/admin/allcustomers`,
             {
-                method: "POST",
+                method: "GET",
 
             }
         );

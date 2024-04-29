@@ -37,7 +37,7 @@ export default function AdminAllCompanies() {
         const response = await fetch(
             `${BASE_URL}/velvethomes/admin/allcompanies`,
             {
-                method: "POST",
+                method: "GET",
 
             }
         );
