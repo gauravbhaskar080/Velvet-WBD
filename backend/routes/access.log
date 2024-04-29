@@ -1474,3 +1474,4 @@
 ::1 - - [29/Apr/2024:22:38:31 +0000] "POST /velvethomes/seller/showallprods HTTP/1.1" 200 88842 "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
 ::1 - - [29/Apr/2024:22:42:19 +0000] "POST /velvethomes/seller/home HTTP/1.1" 200 69967 "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
 ::1 - - [29/Apr/2024:22:42:19 +0000] "POST /velvethomes/seller/home HTTP/1.1" 200 69967 "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
+::1 - - [29/Apr/2024:22:52:41 +0000] "POST /velvethomes/seller/showallprods HTTP/1.1" 200 88842 "http://localhost:5000/api-docs/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
