@@ -72,7 +72,7 @@ export default function AdminLogin() {
         localStorage.setItem('adminLogin',true);
         dispatch(loginAdmin());
         setShowGif(false);
-        navigate(`${BASE_URL}/velvethomes/admin/home`);
+        navigate(`/velvethomes/admin/home`);
       }
     }else{
       setShowGif(false);
