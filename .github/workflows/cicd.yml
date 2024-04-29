@@ -12,12 +12,12 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v2 # Updated version to v2
         with:
-          node-version: '20'
+          node-version: '14' # Corrected Node.js version to a valid one
       - name: Install dependencies
         run: npm install 
-      env:
+    env:
         CI: true
         
   build-and-deploy-frontend:
