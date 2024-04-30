@@ -154,6 +154,23 @@ const showallprods = async (req, res) => {
         res.status(500).json({ success: false, message: 'Internal Server Error' });
     }
 };
+const updateProduct = async(req,res)=>{
+      try {
+        const product = await Object.findById(req.params.id);
+        if(product){
+          const {title,price,quantity} = req.body;
+          if(title)product.title =title;
+          if(price)product.price =price;
+          if(quantity)product.quantity =quantity;
+          await  product.save()
+          res.status(201).json("Updated Successfully");
+        }else{
+            res.status(404).json("Product Not Exist");
+        }
+      } catch (error) {
+        res.status(500).json(error);
+      }
+}
 
 module.exports = {
     login,
@@ -161,4 +178,5 @@ module.exports = {
     home,
     addnewprod,
     showallprods,
+    updateProduct,
 };
