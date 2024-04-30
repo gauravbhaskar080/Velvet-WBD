@@ -63,7 +63,7 @@ export default function PinfoCustomer() {
       data.append("file", image);
       const username = localStorage.getItem("customerUsername");
       try {
-        const res = await fetch(`${BASE_URL}/customerProfile/upload/${username}`, {
+        const res = await fetch(`${BASE_URL}/velvethomes/customerProfile/upload/${username}`, {
           method: "POST",
           body: data
         })
