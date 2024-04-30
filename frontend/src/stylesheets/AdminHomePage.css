@@ -1,4 +1,5 @@
 
+
 .AdminLoadercon {
     width: 100%;
     height: 720px;
@@ -22,13 +23,14 @@
     height: 100%;
   }
   .AdminHomePage {
+    height: 100%;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
   }
-  .AdminAdvertise {
+  /* .AdminAdvertise {
     width: 100%;
     display: flex;
     justify-content: center;
@@ -37,7 +39,7 @@
     height: 120px;
     border-bottom: 3px solid gold;
     transition: height 0.5s;
-  }
+  } */
   .AdminAdvertise img {
     height: 70px;
     width: 100px;
@@ -61,6 +63,7 @@
     overflow-y: scroll;
     scroll-behavior: smooth;
     transition: height 0.5s;
+    background-color: rgb(238, 238, 238); 
   }
   .AdminHomeMainContent::-webkit-scrollbar {
     display: none;
@@ -79,18 +82,18 @@
     flex-wrap: wrap;
   }
   .CHPcard {
-    font-family: monospace;
+    /* font-family: monospace; */
     color: #222;
     background-color: #ffffff;
     /* border: 1px solid black; */
     box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px; /* border: 1px dotted grey; */
-    height: 175px;
+    height: 125px;
     width: 250px;
     display: flex;
     justify-content: flex-end;
     align-items: center;
     flex-direction: column;
-    border-radius: 18px;
+    /* border-radius: 18px; */
     margin-top: 10px;
     padding: 15px;
     text-align: center;
@@ -102,6 +105,7 @@
     justify-content: flex-start;
     align-items: center;
     flex-direction: column;
+    padding: 2px;
   }
   .CHPImage {
     width: 90px;
@@ -109,10 +113,10 @@
     z-index: 6666;
   }
   .CHPcardMainDivTitle {
-    font-size: 26px;
+    font-size: 20px;
     color: black;
     margin-left: 5px;
-    font-family: monospace;
+    /* font-family: monospace; */
   }
   .CHPcardMainDiv {
     width: 98%;
@@ -191,12 +195,14 @@
     align-items: center;
     height: 400px;
     box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+    background-color: white;
   
     border-radius: 10px;
   }
   .AdminHomeCardSales {
     width: 275px;
-    min-height: 400px;
+    /* height: 500px; */
+    min-height: 430px;
     min-width: min-content;
     display: flex;
     justify-content: flex-start;
@@ -207,6 +213,7 @@
     /* border: 4px solid rgba(121, 118, 116, 0.692); */
     box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
     padding: 0.7rem;
+    background-color: white;
   }
   .AdminHomeCardDispImg {
     width: 100%;
@@ -231,11 +238,12 @@
     color: #222;
   }
   .AdminHomeCardDivTitle {
-    font-size: large;
+    font-size: 1.1rem;
     color: #333;
+    
   }
   .AdminHomeCardDivValue {
-    font-size: medium;
+    font-size: 0.9rem;
     margin-left: 5px;
     color: #555;
   }
@@ -266,6 +274,7 @@
     border-left: 1px solid #555;
   }
   .AdminHomeForm {
+    font-size: 1rem;
     width: 80%;
     display: flex;
     justify-content: space-evenly;
@@ -276,8 +285,10 @@
     border-radius: 5px;
     /* box-shadow: 5px 5px 15px 15px #e3f4f4d2; */
     box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+    background-color: white;
   }
   .AdminInputCon {
+    font-size: 1rem;
     width: 70%;
     display: flex;
     align-items: flex-start;
@@ -286,7 +297,7 @@
     margin: 10px 0;
   }
   .AdminInputLabel {
-    font-size: x-large;
+    font-size: 1rem;
     color: #482121;
   }
   .AdminHomeNumber {
@@ -295,17 +306,19 @@
   .AdminHomeText {
     width: 200px;
     height: 25px;
-    font-size: 20px;
-    border-radius: 3px;
+    font-size: 15px;
+    /* border-radius: 3px; */
     /* background-color: #e3f4f4; */
-    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+    /* box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px; */
     text-align: center;
     color: black;
+
   }
   .AdminHomeText:focus {
     outline: none;
   }
   .AdminInputBtnCon {
+    font-size: 1rem;
     width: 70%;
     height: 70px;
     display: flex;
@@ -328,7 +341,7 @@
     border: none;
   }
   .AdminInputBtn:hover {
-    background-color: #3f2305cf;
+    background-color: black;
   }
   .CHPcardBtn {
     width: 150px;
@@ -409,5 +422,23 @@
     text-decoration: underline;
     color: #333;
   }
+  .AdminHomeCardSales:hover {
+    transform: translateY(-3px); /* Move the card up by 5 pixels on hover */
+}
+
   
-  
+.AdminHomeCardDispImg:hover {
+  transform: translateY(-25px); 
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+  border-radius: 2px;
+
+  /* height: 310px;
+  width: 210px;Move the card up by 5 pixels on hover */
+}
+
+.CHPcard:hover {
+  transform: translateY(-5px); /* Move the card up by 5 pixels on hover */
+}
+.CHPcardBtn:hover{
+  transform: translateY(0px);
+}

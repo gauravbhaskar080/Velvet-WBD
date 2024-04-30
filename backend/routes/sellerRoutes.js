@@ -169,7 +169,7 @@ router.use(morgan('combined', { stream: accessLogStream }));
  *                 type: number
  *               quantity:
  *                 type: number
- *               subcategory:
+ *               category:
  *                 type: string
  *               companyusername:
  *                 type: string
@@ -181,14 +181,7 @@ router.use(morgan('combined', { stream: accessLogStream }));
  *                 type: array
  *                 items:
  *                   type: string
- *               features_keys:
- *                 type: array
- *                 items:
- *                   type: string
- *               features_values:
- *                 type: array
- *                 items:
- *                   type: string
+ *    
  *     responses:
  *       200:
  *         description: Product added successfully
@@ -244,7 +237,7 @@ router.use(morgan('combined', { stream: accessLogStream }));
  *                 objects:
  *                   type: array
  *                   items:
- *                     $ref: '#/components/schemas/Object'
+ *                     $ref: 'Object'
  *       400:
  *         description: Bad request
  *         content:

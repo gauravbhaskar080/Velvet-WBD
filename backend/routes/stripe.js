@@ -29,7 +29,7 @@ router.post("/create-checkout-session", async (req, res) => {
       })),
       mode: "payment",
       success_url: `${process.env.CLIENT_URL}/checkout-success`,
-      cancel_url: `${process.env.CLIENT_URL}/velvethomes/cart`,
+      cancel_url: `https://velvet-wbd.vercel.app/velvethomes/cart`,
     });
 
     res.json({ url: session.url });
@@ -62,7 +62,7 @@ router.post("/cart-create-checkout-session", async (req, res) => {
       })),
       mode: "payment",
       success_url: `${process.env.CLIENT_URL}/checkout-success`,
-      cancel_url: `${process.env.CLIENT_URL}/velvethomes/cart`,
+      cancel_url: `https://velvet-wbd.vercel.app/velvethomes/cart`,
     });
 
     res.json({ url: session.url });

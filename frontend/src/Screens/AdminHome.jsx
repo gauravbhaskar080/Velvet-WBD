@@ -9,9 +9,10 @@ export default function AdminHome({element}) {
         style={{
           width: "100%",
           display: "flex",
-          justifyContent: "space-evenly",
+          // justifyContent: "space-evenly",
           alignItems: "flex-start",
-          height: "720px"
+          height: "100vh",
+          margin:"0px"
         }}
       >
         <AdminNavBar navTitle={element}/>

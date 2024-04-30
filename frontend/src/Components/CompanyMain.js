@@ -9,9 +9,9 @@ export default function CompanyMain({openPage,element}) {
         style={{
           width: "100%",
           display: "flex",
-          justifyContent: "space-evenly",
+          // justifyContent: "space-evenly",
           alignItems: "flex-start",
-          height: "720px"
+          height: "100vh"
         }}
       >
         <CompanyNavBar navTitle={element}></CompanyNavBar>
