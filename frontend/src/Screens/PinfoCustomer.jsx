@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "../stylesheets/PinfoCustomer.css";
 import CustomerNavBar from "../Components/CustomerNavBar";
 import { json } from "react-router-dom";
+import { BASE_URL } from "../api.js"
 
 export default function PinfoCustomer() {
   const [cust, setCust] = useState({
@@ -38,7 +39,7 @@ export default function PinfoCustomer() {
           }
           console.log(newCut)
           try {
-            const res = await fetch(`http://localhost:5000/velvethomes/customer/update/${localStorage.getItem("customerUsername")}`,{
+            const res = await fetch(`${BASE_URL}/velvethomes/customer/update/${localStorage.getItem("customerUsername")}`,{
               method: "POST",
               headers: {
                 "Content-Type": "application/json"
@@ -62,7 +63,7 @@ export default function PinfoCustomer() {
       data.append("file", image);
       const username = localStorage.getItem("customerUsername");
       try {
-        const res = await fetch(`http://localhost:5000/customerProfile/upload/${username}`, {
+        const res = await fetch(`${BASE_URL}/customerProfile/upload/${username}`, {
           method: "POST",
           body: data
         })
@@ -80,7 +81,7 @@ export default function PinfoCustomer() {
 
   const fetchData = async () => {
     const response = await fetch(
-      "http://localhost:5000/velvethomes/customer/pinfo",
+      `${BASE_URL}/velvethomes/customer/pinfo`,
       {
         method: "POST",
         headers: {
@@ -136,7 +137,7 @@ export default function PinfoCustomer() {
         <div className="PinfoCustInfo">
           <div className="PinfoCustInfoImgwrap">
             <button type="button" style={{ backgroundColor: "#c2c3c0", border: "1px solid black", borderRadius: "50%", border: "none" }} data-bs-toggle="modal" data-bs-target="#exampleModal">
-              <img src={`http://localhost:5000/customerProfile/images/${cust.photo}`} className="PinfoCustInfoImg" alt="" />
+              <img src={`${BASE_URL}/customerProfile/images/${cust.photo}`} className="PinfoCustInfoImg" alt="" />
             </button>
             <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
               <div className="modal-dialog">
