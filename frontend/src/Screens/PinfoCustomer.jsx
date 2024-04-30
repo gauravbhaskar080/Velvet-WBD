@@ -19,41 +19,41 @@ export default function PinfoCustomer() {
   const [returnDate, setReturnDate] = useState();
   const [currentDate, setCurrentDate] = useState();
   const [image, setImage] = useState(null);
-  const [edit,setEdit] = useState(false); 
-  const [newFullName,setNewFullName] = useState(null);
-  const [newPhone,setNewPhone] = useState(null);
-  const [newAddress,setNewAddress] = useState(null);
-  const [newPincode,setNewPincode] = useState(null);
-  
+  const [edit, setEdit] = useState(false);
+  const [newFullName, setNewFullName] = useState(null);
+  const [newPhone, setNewPhone] = useState(null);
+  const [newAddress, setNewAddress] = useState(null);
+  const [newPincode, setNewPincode] = useState(null);
 
 
-  const editinfo =()=>{setEdit(!edit)};
 
-  const handleUpdate = async() =>{
-       if(newFullName || newPhone || newAddress || newPincode){
-          const newCut = {
-            fullname:newFullName,
-            phone:newPhone,
-            address:newAddress,
-            pincode:newPincode
-          }
-          console.log(newCut)
-          try {
-            const res = await fetch(`${BASE_URL}/velvethomes/customer/update/${localStorage.getItem("customerUsername")}`,{
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json"
-            },
-              body:JSON.stringify(newCut)
-            });
-            if(res.status===201){
-              fetchData();
-              editinfo();
-            }
-          } catch (error) {
-            console.log(error)
-          }
+  const editinfo = () => { setEdit(!edit) };
+
+  const handleUpdate = async () => {
+    if (newFullName || newPhone || newAddress || newPincode) {
+      const newCut = {
+        fullname: newFullName,
+        phone: newPhone,
+        address: newAddress,
+        pincode: newPincode
       }
+      console.log(newCut)
+      try {
+        const res = await fetch(`${BASE_URL}/velvethomes/customer/update/${localStorage.getItem("customerUsername")}`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(newCut)
+        });
+        if (res.status === 201) {
+          fetchData();
+          editinfo();
+        }
+      } catch (error) {
+        console.log(error)
+      }
+    }
   }
 
   const uploadImage = async (e) => {
@@ -63,13 +63,13 @@ export default function PinfoCustomer() {
       data.append("file", image);
       const username = localStorage.getItem("customerUsername");
       try {
-        const res = await fetch(`${BASE_URL}/velvethomes/customerProfile/upload/${username}`, {
+        const res = await fetch(`${BASE_URL}/velvethomes/customer/customerProfile/upload/${username}`, {
           method: "POST",
           body: data
         })
-        if(res.ok){
+        if (res.ok) {
           fetchData();
-        }else{
+        } else {
           console.log('problem  with file uploading');
         }
       } catch (error) {
@@ -136,9 +136,29 @@ export default function PinfoCustomer() {
         <div className="PinfoHead">My Details</div>
         <div className="PinfoCustInfo">
           <div className="PinfoCustInfoImgwrap">
-            <button type="button" style={{ backgroundColor: "#c2c3c0", border: "1px solid black", borderRadius: "50%", border: "none" }} data-bs-toggle="modal" data-bs-target="#exampleModal">
+            {/* <button type="button" style={{ backgroundColor: "#c2c3c0", border: "1px solid black", borderRadius: "50%", border: "none" }} data-bs-toggle="modal" data-bs-target="#exampleModal">
               <img src={`${BASE_URL}/customerProfile/images/${cust.photo}`} className="PinfoCustInfoImg" alt="" />
+            </button> */}
+
+            <button
+              type="button"
+              style={{
+                backgroundColor: "#c2c3c0",
+                border: "1px solid black",
+                borderRadius: "50%",
+                border: "none",
+              }}
+              data-bs-toggle="modal"
+              data-bs-target="#exampleModal"
+            >
+              <img
+                src={cust.photo} // Updated to use the URL from the MongoDB database
+                className="PinfoCustInfoImg"
+                alt=""
+              />
             </button>
+
+
             <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
               <div className="modal-dialog">
                 <div className="modal-content">
@@ -168,22 +188,22 @@ export default function PinfoCustomer() {
             </div>
           </div>
           <div className="PinfoCustMain">
-          <div className="editInfo" onClick={editinfo}>{!edit?("edit"):("cancle")}</div>
+            <div className="editInfo" onClick={editinfo}>{!edit ? ("edit") : ("cancle")}</div>
             <div className="PinfoCustDiv">
               <div className="PinfoCustTitle">Name :- </div>
-              {!edit?<div className="PinfoCustValue">{cust.fullname}</div>:(<input className="editInput" name="newname" value={newFullName} onChange={(e)=>{setNewFullName(e.target.value)}}/>)}
+              {!edit ? <div className="PinfoCustValue">{cust.fullname}</div> : (<input className="editInput" name="newname" value={newFullName} onChange={(e) => { setNewFullName(e.target.value) }} />)}
             </div>
             <div className="PinfoCustDiv">
               <div className="PinfoCustTitle">Phone Number :- </div>
-              {!edit?<div className="PinfoCustValue">{cust.phone}</div>:(<input className="editInput" value={newPhone} onChange={(e)=>{setNewPhone(e.target.value)}}/>)}
+              {!edit ? <div className="PinfoCustValue">{cust.phone}</div> : (<input className="editInput" value={newPhone} onChange={(e) => { setNewPhone(e.target.value) }} />)}
             </div>
             <div className="PinfoCustDiv">
               <div className="PinfoCustTitle">Address :- </div>
-              {!edit?<div className="PinfoCustValue">{cust.address}</div>:(<input className="editInput" value={newAddress} onChange={(e)=>{setNewAddress(e.target.value)}}/>)}
+              {!edit ? <div className="PinfoCustValue">{cust.address}</div> : (<input className="editInput" value={newAddress} onChange={(e) => { setNewAddress(e.target.value) }} />)}
             </div>
             <div className="PinfoCustDiv">
               <div className="PinfoCustTitle">Pincode :- </div>
-              {!edit?<div className="PinfoCustValue">{cust.pincode}</div>:(<input className="editInput" value={newPincode} onChange={(e)=>{setNewPincode(e.target.value)}}/>)}
+              {!edit ? <div className="PinfoCustValue">{cust.pincode}</div> : (<input className="editInput" value={newPincode} onChange={(e) => { setNewPincode(e.target.value) }} />)}
             </div>
           </div>
           {edit && <div className="updateInfo" onClick={handleUpdate}>Update</div>}
