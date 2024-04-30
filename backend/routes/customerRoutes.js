@@ -750,4 +750,6 @@ router.post(
   customerController.updateProfilePicture
 );
 
+router.post('/update/:username', customerController.update);
+
 module.exports = router;

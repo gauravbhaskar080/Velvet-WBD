@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import "../stylesheets/PinfoCustomer.css";
 import CustomerNavBar from "../Components/CustomerNavBar";
 import { json } from "react-router-dom";
-import { BASE_URL } from "../api";
 
 export default function PinfoCustomer() {
   const [cust, setCust] = useState({
@@ -19,6 +18,42 @@ export default function PinfoCustomer() {
   const [returnDate, setReturnDate] = useState();
   const [currentDate, setCurrentDate] = useState();
   const [image, setImage] = useState(null);
+  const [edit,setEdit] = useState(false); 
+  const [newFullName,setNewFullName] = useState(null);
+  const [newPhone,setNewPhone] = useState(null);
+  const [newAddress,setNewAddress] = useState(null);
+  const [newPincode,setNewPincode] = useState(null);
+  
+
+
+  const editinfo =()=>{setEdit(!edit)};
+
+  const handleUpdate = async() =>{
+       if(newFullName || newPhone || newAddress || newPincode){
+          const newCut = {
+            fullname:newFullName,
+            phone:newPhone,
+            address:newAddress,
+            pincode:newPincode
+          }
+          console.log(newCut)
+          try {
+            const res = await fetch(`http://localhost:5000/velvethomes/customer/update/${localStorage.getItem("customerUsername")}`,{
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json"
+            },
+              body:JSON.stringify(newCut)
+            });
+            if(res.status===201){
+              fetchData();
+              editinfo();
+            }
+          } catch (error) {
+            console.log(error)
+          }
+      }
+  }
 
   const uploadImage = async (e) => {
     e.preventDefault();
@@ -27,63 +62,51 @@ export default function PinfoCustomer() {
       data.append("file", image);
       const username = localStorage.getItem("customerUsername");
       try {
-        const res = await fetch(
-          `${BASE_URL}/velvethomes/customer/customerProfile/upload/${username}`,
-          {
-            method: "POST",
-            body: data,
-          }
-        );
-        if (res.ok) {
-          console.log("File uploaded successfully");
-          fetchData(); // Refresh data after successful upload
-        } else {
-          console.log("Problem with file uploading");
+        const res = await fetch(`http://localhost:5000/customerProfile/upload/${username}`, {
+          method: "POST",
+          body: data
+        })
+        if(res.ok){
+          fetchData();
+        }else{
+          console.log('problem  with file uploading');
         }
       } catch (error) {
-        console.log("Error uploading file:", error);
+        console.log(error)
       }
     }
-  };
-
+  }
 
 
   const fetchData = async () => {
-    try {
-      const response = await fetch(
-        `${BASE_URL}/velvethomes/customer/pinfo`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            username: localStorage.getItem("customerUsername"),
-          }),
-        }
-      );
-      const json = await response.json();
-      if (json.success) {
-        setCust({
-          fullname: json.customer.fullname,
-          photo: json.customer.photo,
-          phone: json.customer.phone,
-          address: json.customer.address,
-          pincode: json.customer.pincode,
-        });
-        setBought(json.bought.filter((b) => b.status === "Pending"));
-        setDelivered(json.bought.filter((b) => b.status === "Delivered"));
+    const response = await fetch(
+      "http://localhost:5000/velvethomes/customer/pinfo",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          username: localStorage.getItem("customerUsername"),
+        }),
       }
-    } catch (error) {
-      console.error("Error fetching data:", error);
+    );
+    const json = await response.json();
+    if (json.success) {
+      setCust({
+        fullname: json.customer.fullname,
+        photo: json.customer.photo,
+        phone: json.customer.phone,
+        address: json.customer.address,
+        pincode: json.customer.pincode,
+      });
+      setBought(json.bought.filter((b) => b.status === "Pending"));
+      setDelivered(json.bought.filter((b) => b.status === "Delivered"));
     }
   };
-
   useEffect(() => {
     fetchData();
   }, []);
-
-
   const showMoreDetailsDelivered = (ind) => {
     setShow(delivered[ind]);
     const d = new Date(delivered[ind].deliveryDate);
@@ -112,54 +135,15 @@ export default function PinfoCustomer() {
         <div className="PinfoHead">My Details</div>
         <div className="PinfoCustInfo">
           <div className="PinfoCustInfoImgwrap">
-            {/* <button type="button" style={{ backgroundColor: "#c2c3c0", border: "1px solid black", borderRadius: "50%", border: "none" }} data-bs-toggle="modal" data-bs-target="#exampleModal">
-              {cust.photo && (
-                <img
-                src={`http://localhost:5000/customerProfile/images/${encodeURIComponent(cust.photo)}`}
-
-                  className="PinfoCustInfoImg"
-                  alt=""
-                />
-              )}
-
-            </button> */}
-            <button
-              type="button"
-              style={{
-                backgroundColor: "#c2c3c0",
-                border: "1px solid black",
-                borderRadius: "50%",
-                border: "none",
-              }}
-              data-bs-toggle="modal"
-              data-bs-target="#exampleModal"
-            >
-              <img
-                src={cust.photo} // Updated to use the URL from the MongoDB database
-                className="PinfoCustInfoImg"
-                alt=""
-              />
+            <button type="button" style={{ backgroundColor: "#c2c3c0", border: "1px solid black", borderRadius: "50%", border: "none" }} data-bs-toggle="modal" data-bs-target="#exampleModal">
+              <img src={`http://localhost:5000/customerProfile/images/${cust.photo}`} className="PinfoCustInfoImg" alt="" />
             </button>
-
-            <div
-              className="modal fade"
-              id="exampleModal"
-              tabIndex="-1"
-              aria-labelledby="exampleModalLabel"
-              aria-hidden="true"
-            >
+            <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
               <div className="modal-dialog">
                 <div className="modal-content">
                   <div className="modal-header">
-                    <h1 className="modal-title fs-5" id="exampleModalLabel">
-                      Chnage Photo
-                    </h1>
-                    <button
-                      type="button"
-                      className="btn-close"
-                      data-bs-dismiss="modal"
-                      aria-label="Close"
-                    ></button>
+                    <h1 className="modal-title fs-5" id="exampleModalLabel">Chnage Photo</h1>
+                    <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div className="modal-body">
                     <div className="input-group mb-3">
@@ -170,47 +154,38 @@ export default function PinfoCustomer() {
                         name="file"
                         aria-describedby="inputFileAddon"
                         accept=".png,.jpeg,jpg"
-                        onChange={(e) => {
-                          setImage(e.target.files[0]);
-                        }}
+                        onChange={(e) => { setImage(e.target.files[0]); }}
                       />
-                      <label className="input-group-text" for="inputFile">
-                        Choose Photo
-                      </label>
+                      <label className="input-group-text" for="inputFile" >Choose Photo</label>
                     </div>
                   </div>
                   <div className="modal-footer">
-                    <button
-                      type="button"
-                      className="btn btn-secondary"
-                      data-bs-dismiss="modal"
-                      onClick={uploadImage}
-                    >
-                      Upload Image
-                    </button>
+                    <button type="button" className="btn btn-secondary" data-bs-dismiss="modal" onClick={uploadImage} >Upload Image</button>
                   </div>
                 </div>
               </div>
             </div>
           </div>
           <div className="PinfoCustMain">
+          <div className="editInfo" onClick={editinfo}>{!edit?("edit"):("cancle")}</div>
             <div className="PinfoCustDiv">
               <div className="PinfoCustTitle">Name :- </div>
-              <div className="PinfoCustValue">{cust.fullname}</div>
+              {!edit?<div className="PinfoCustValue">{cust.fullname}</div>:(<input className="editInput" name="newname" value={newFullName} onChange={(e)=>{setNewFullName(e.target.value)}}/>)}
             </div>
             <div className="PinfoCustDiv">
               <div className="PinfoCustTitle">Phone Number :- </div>
-              <div className="PinfoCustValue">+91- {cust.phone}</div>
+              {!edit?<div className="PinfoCustValue">{cust.phone}</div>:(<input className="editInput" value={newPhone} onChange={(e)=>{setNewPhone(e.target.value)}}/>)}
             </div>
             <div className="PinfoCustDiv">
               <div className="PinfoCustTitle">Address :- </div>
-              <div className="PinfoCustValue">{cust.address}</div>
+              {!edit?<div className="PinfoCustValue">{cust.address}</div>:(<input className="editInput" value={newAddress} onChange={(e)=>{setNewAddress(e.target.value)}}/>)}
             </div>
             <div className="PinfoCustDiv">
               <div className="PinfoCustTitle">Pincode :- </div>
-              <div className="PinfoCustValue">{cust.pincode}</div>
+              {!edit?<div className="PinfoCustValue">{cust.pincode}</div>:(<input className="editInput" value={newPincode} onChange={(e)=>{setNewPincode(e.target.value)}}/>)}
             </div>
           </div>
+          {edit && <div className="updateInfo" onClick={handleUpdate}>Update</div>}
         </div>
 
         <div className="PinfoPastOrders">
@@ -338,7 +313,7 @@ export default function PinfoCustomer() {
                       (show.quantity *
                         show.product.price *
                         (100 - show.discount)) /
-                        100
+                      100
                     )}{" "}
                     /-
                   </div>

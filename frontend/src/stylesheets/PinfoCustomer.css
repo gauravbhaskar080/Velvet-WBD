@@ -1,5 +1,6 @@
-body{
+body {
     background-color: #eeeded;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Add your desired font family here */
 }
 .PinfoCust{
     width: 100%;
@@ -31,6 +32,7 @@ body{
     align-items: center;
     margin-top: 30px;
     background-color: #dadad8;
+    position: relative;
     height: 200px;
 }
 .PinfoCustInfoImgwrap{
@@ -53,6 +55,47 @@ body{
     align-items: flex-start;
     flex-direction: column;
     height: 100%;
+}
+.editInfo{
+   position: absolute;
+   color: white;
+   font-size: 15px;
+   border-radius: 15px;
+   padding: 5px;
+   background-color: rgb(105, 104, 104);
+   margin: 5px;
+   right: 0;
+   top: 0;
+   cursor: pointer;
+}
+.updateInfo{
+    position: absolute;
+    color: white;
+    font-size: 15px;
+    border-radius: 15px;
+    padding: 5px;
+    background-color: rgb(105, 104, 104);
+    margin: 5px;
+    right: 0;
+    bottom: 0;
+    cursor: pointer;
+}
+.updateInfo:hover{
+    background-color: black;
+}
+.editInput {
+    border: 0.5px solid gray;
+    border-radius: 10px;
+    background-color: rgb(228, 223, 223);
+    padding: 3px;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.25); 
+}
+
+.editInput:focus{
+    outline: none;
+}
+.editInfo:hover{
+    background-color: black;
 }
 .PinfoCustDiv{
     width: 100%;
