@@ -3,6 +3,7 @@ import TypingEffect from "../Components/TypingEffect";
 import "../stylesheets/CompanyHomePage.css";
 import logo from "./logo.jpeg";
 import SalesChart from "./SalesChart";
+import { BASE_URL } from "../api";
 
 export default function CompanyHomePage() {
   const quotes = [
@@ -39,7 +40,7 @@ export default function CompanyHomePage() {
   };
   const fetchData = async function () {
     const response = await fetch(
-      "http://localhost:5000/velvethomes/seller/home",
+      `${BASE_URL}/velvethomes/seller/home`,
       {
         method: "POST",
         headers: {

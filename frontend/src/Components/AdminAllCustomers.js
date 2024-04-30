@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import logo from "./logo.jpeg";
 import "../stylesheets/AdminHomePage.css";
 import loader from "../Pictures/loader.gif";
+import { BASE_URL } from "../api";
 
 export default function AdminAllCustomers() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -28,12 +29,9 @@ export default function AdminAllCustomers() {
   };
 
   const fetchData = async () => {
-    const response = await fetch(
-      "http://localhost:5000/velvethomes/admin/allcustomers",
-      {
-        method: "GET",
-      }
-    );
+    const response = await fetch(`${BASE_URL}/velvethomes/admin/allcustomers`, {
+      method: "GET",
+    });
     const json = await response.json();
     if (json.success) {
       setCustomers(json.customers);

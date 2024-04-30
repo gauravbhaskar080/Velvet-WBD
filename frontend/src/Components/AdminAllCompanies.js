@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import logo from "./logo.jpeg";
 import "../stylesheets/AdminHomePage.css";
 import loader from "../Pictures/loader.gif";
+import { BASE_URL } from "../api";
 
 export default function AdminAllCompanies() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -35,7 +36,7 @@ export default function AdminAllCompanies() {
 
   const fetchData = async () => {
     const response = await fetch(
-      "http://localhost:5000/velvethomes/admin/allcompanies",
+      `${BASE_URL}/velvethomes/admin/allcompanies`,
       {
         method: "GET",
       }

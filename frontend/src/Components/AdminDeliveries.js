@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import logo from "./logo.jpeg";
 import "../stylesheets/AdminHomePage.css";
 import loader from "../Pictures/loader.gif";
+import { BASE_URL } from "../api";
 
 export default function AdminDeliveries() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -38,7 +39,7 @@ export default function AdminDeliveries() {
   const deliver = async (id) => {
     console.log(id);
     const response = await fetch(
-      "http://localhost:5000/velvethomes/admin/delivered",
+      `${BASE_URL}/velvethomes/admin/delivered`,
       {
         method: "POST",
         headers: {
@@ -58,7 +59,7 @@ export default function AdminDeliveries() {
   const fetchData = async () => {
     setShowLoader(true);
     const response = await fetch(
-      "http://localhost:5000/velvethomes/admin/deliveries",
+      `${BASE_URL}/velvethomes/admin/deliveries`,
       {
         method: "GET",
       }

@@ -4,6 +4,7 @@ import logo from "./logo.jpeg";
 import "../stylesheets/AdminHomePage.css";
 import SalesChart from "./SalesChart";
 import loader from "../Pictures/loader.gif";
+import { BASE_URL } from "../api";
 
 export default function AdminHomePage() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -35,20 +36,17 @@ export default function AdminHomePage() {
   });
   const handleSubmit = async (evt) => {
     evt.preventDefault();
-    const response = await fetch(
-      "http://localhost:5000/velvethomes/admin/discountcode",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          code: formData.code,
-          discountpercent: formData.discountpercent,
-          to: formData.to,
-        }),
-      }
-    );
+    const response = await fetch(`${BASE_URL}/velvethomes/admin/discountcode`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        code: formData.code,
+        discountpercent: formData.discountpercent,
+        to: formData.to,
+      }),
+    });
     const json = await response.json();
     if (json.success) {
       setDc([...dc, json.code]);
@@ -65,7 +63,7 @@ export default function AdminHomePage() {
   const deleteCode = async (id) => {
     alert(id);
     const response = await fetch(
-      "http://localhost:5000/velvethomes/admin/deletediscountcode",
+      `${BASE_URL}/velvethomes/admin/deletediscountcode`,
       {
         method: "DELETE",
         headers: {
@@ -82,18 +80,15 @@ export default function AdminHomePage() {
     }
   };
   const fetchData = async () => {
-    const response = await fetch(
-      "http://localhost:5000/velvethomes/admin/home",
-      {
-        method: "GET",
-        // headers: {
-        //     "Content-Type": "application/json",
-        // },
-        // body: JSON.stringify({
-        //     email: localStorage.getItem("userEmail")
-        // }),
-      }
-    );
+    const response = await fetch(`${BASE_URL}/velvethomes/admin/home`, {
+      method: "GET",
+      // headers: {
+      //     "Content-Type": "application/json",
+      // },
+      // body: JSON.stringify({
+      //     email: localStorage.getItem("userEmail")
+      // }),
+    });
     const json = await response.json();
     if (json.success) {
       setCust(json.customer);

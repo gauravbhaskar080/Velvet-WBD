@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import logo from "./logo.jpeg";
 import "../stylesheets/CompanyAllProducts.css";
 import TypingEffect from "./TypingEffect";
+import { BASE_URL } from "../api";
 
 export default function CompanyAllProducts() {
   const quotes = [
@@ -28,7 +29,7 @@ export default function CompanyAllProducts() {
   };
   const fetchData = async () => {
     const response = await fetch(
-      "http://localhost:5000/velvethomes/seller/showallprods",
+      `${BASE_URL}/velvethomes/seller/showallprods`,
       {
         method: "POST",
         headers: {
