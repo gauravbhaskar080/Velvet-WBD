@@ -75,7 +75,7 @@ function ResponsiveAppBar() {
     }
 
     return (
-        <AppBar position="static" sx={{ backgroundColor: 'grey' }}>
+        <AppBar position="static" sx={{ backgroundColor: '#383838' }}>
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
                     <img src={logo} onClick={() => navigate('/')} height='70px' style={{ marginTop: '10px', cursor: 'pointer', marginBottom: '10px', borderRadius: '25%' }} alt="" />

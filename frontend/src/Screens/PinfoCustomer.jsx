@@ -152,7 +152,7 @@ export default function PinfoCustomer() {
                 <div className="modal-content">
                   <div className="modal-header">
                     <h1 className="modal-title fs-5" id="exampleModalLabel">
-                      Chnage Photo
+                      Change Photo
                     </h1>
                     <button
                       type="button"
@@ -214,7 +214,7 @@ export default function PinfoCustomer() {
         </div>
 
         <div className="PinfoPastOrders">
-          <div className="PinfoPHead">Pending Deliveries :- </div>
+          <div className="PinfoPHead">Pending Deliveries</div>
           <div className="PinfoPOrders">
             {bought.map((evt, ind) => (
               <div className="PinfoCard" key={ind}>
@@ -224,7 +224,9 @@ export default function PinfoCustomer() {
                   alt=""
                 />
                 <div className="PinfoCardMain">
-                  <div className="PinfoMainTitle">{evt.product.title}</div>
+                  <div className="PinfoMainTitle">
+                    {evt.product.title.split(" ").slice(0, 6).join(" ")}
+                  </div>
                   <div className="PinfoMainTitleItem">
                     Delivery Status :- <span>{evt.status}</span>
                   </div>
@@ -242,7 +244,7 @@ export default function PinfoCustomer() {
           </div>
         </div>
         <div className="PinfoPastOrders">
-          <div className="PinfoPHead">My Orders :- </div>
+          <div className="PinfoPHead">My Orders</div>
           <div className="PinfoPOrders">
             {delivered.map((evt, ind) => (
               <div className="PinfoCard" key={ind}>

@@ -236,6 +236,7 @@
     text-align: center;
     align-items: center;
     color: #222;
+    border-bottom: 1px solid black;
   }
   .AdminHomeCardDivTitle {
     font-size: 1.1rem;

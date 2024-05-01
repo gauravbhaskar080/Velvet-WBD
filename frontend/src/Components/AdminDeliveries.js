@@ -127,7 +127,7 @@ export default function AdminDeliveries() {
                       justifyContent: "center",
                     }}
                   >
-                    {cust.product.title}
+                    {cust.product.title.split(' ').slice(0, 6).join(' ')}
                   </div>
                   <div
                     className="AdminHomeCardDiv"

@@ -63,67 +63,72 @@ export default function BNBill() {
     }
   };
 
+  const payment = async function () {
+    const response = await fetch(
+      `${BASE_URL}/velvethomes/customer/placeorder`,
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          id: id,
+          username: localStorage.getItem('customerUsername'),
+          quantity: qty,
+          discount: discount,
+          couponcode: discount === 1 ? 'none' : code,
+        }),
+      }
+    );
+    const json = await response.json();
+    if (json.status) {
+      navigate('/velvethomes/pinfo');
+    } else {
+      alert(json.message);
+    }
+  };
+
+  // Frontend code
   // const placeOrder = async function () {
-  //   const response = await fetch(
-  //     `${BASE_URL}/velvethomes/customer/placeorder`,
-  //     {
-  //       method: 'POST',
-  //       headers: {
-  //         'Content-Type': 'application/json',
-  //       },
-  //       body: JSON.stringify({
-  //         id: id,
-  //         username: localStorage.getItem('customerUsername'),
-  //         quantity: qty,
-  //         discount: discount,
-  //         couponcode: discount === 1 ? 'none' : code,
-  //       }),
+  //   try {
+  //     const response = await fetch(
+  //       `${BASE_URL}/stripe/create-checkout-session`,
+  //       {
+  //         method: "POST",
+  //         headers: {
+  //           "Content-Type": "application/json",
+  //         },
+  //         body: JSON.stringify({
+  //           cartItems: [
+  //             {
+  //               id: element.id, // Provide the correct item ID
+  //               name: element.title,
+  //               price: element.price,
+  //               quantity: qty,
+  //               url: element.images,
+  //             },
+  //           ],
+  //         }),
+  //       }
+  //     );
+  //     const orderJson = await response.json();
+
+  //     if (orderJson.url) {
+  //       // Redirect to Stripe checkout page
+  //       window.location.href = orderJson.url;
+  //     } else {
+  //       alert(orderJson.error);
   //     }
-  //   );
-  //   const json = await response.json();
-  //   if (json.status) {
-  //     navigate('/velvethomes/pinfo');
-  //   } else {
-  //     alert(json.message);
+  //   } catch (error) {
+  //     console.error("Error:", error);
+  //     // Handle error (e.g., display an error message)
   //   }
   // };
 
-  // Frontend code
-  const placeOrder = async function () {
-    try {
-      const response = await fetch(
-        `${BASE_URL}/stripe/create-checkout-session`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            cartItems: [
-              {
-                id: element.id, // Provide the correct item ID
-                name: element.title,
-                price: element.price,
-                quantity: qty,
-                url: element.images,
-              },
-            ],
-          }),
-        }
-      );
-      const orderJson = await response.json();
-
-      if (orderJson.url) {
-        // Redirect to Stripe checkout page
-        window.location.href = orderJson.url;
-      } else {
-        alert(orderJson.error);
-      }
-    } catch (error) {
-      console.error("Error:", error);
-      // Handle error (e.g., display an error message)
-    }
-  };
+  // const handlePlaceOrder = async () => {
+  //   await payment();
+  //   await placeOrder();
+  // };
 
   const fetchData = async function () {
     const response = await fetch(
@@ -281,7 +286,7 @@ export default function BNBill() {
       )}
       <div className="BNB-btn-con">
         <Button
-          onClick={placeOrder}
+          onClick={payment}
           variant="contained"
           style={{ fontSize: "12px", margin: "10px", backgroundColor: "black" }}
         >

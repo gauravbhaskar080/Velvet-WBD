@@ -390,4 +390,132 @@ router.post("/discountcode", adminController.discountcode);
 router.delete('/deletediscountcode',adminController.deletediscountcode);
 router.patch("/delivered", adminController.delivered);
 
+
+
+
+/** 
+* @swagger
+ * /velvethomes/admin/deletecustomer:
+ *   delete:
+ *     summary: Delete a customer
+ *     description: Endpoint to delete a customer.
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               id:
+ *                 type: string
+ *     responses:
+ *       200:
+ *         description: Customer deleted successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 success:
+ *                   type: boolean
+ *                   description: Indicates if the deletion was successful
+ *                 message:
+ *                   type: string
+ *                   description: Success message
+ *       404:
+ *         description: Customer not found
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 success:
+ *                   type: boolean
+ *                   description: Indicates if the request failed
+ *                 message:
+ *                   type: string
+ *                   description: Error message
+ *       500:
+ *         description: Internal server error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 success:
+ *                   type: boolean
+ *                   description: Indicates if the request failed
+ *                 message:
+ *                   type: string
+ *                   description: Error message
+*/
+
+
+// delete company
+
+/**
+ * @swagger
+ * /velvethomes/admin/deletecompany:
+ *   delete:
+ *     summary: Delete a company
+ *     description: Endpoint to delete a company.
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               id:
+ *                 type: string
+ *     responses:
+ *       200:
+ *         description: Company deleted successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 success:
+ *                   type: boolean
+ *                   description: Indicates if the deletion was successful
+ *                 message:
+ *                   type: string
+ *                   description: Success message
+ *       404:
+ *         description: Company not found
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 success:
+ *                   type: boolean
+ *                   description: Indicates if the request failed
+ *                 message:
+ *                   type: string
+ *                   description: Error message
+ *       500:
+ *         description: Internal server error
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 success:
+ *                   type: boolean
+ *                   description: Indicates if the request failed
+ *                 message:
+ *                   type: string
+ *                   description: Error message
+*/
+
+
+
+router.delete("/deletecustomer", adminController.deleteCustomer);
+
+router.delete("/deletecompany", adminController.deleteCompany);
+
+
+
 module.exports = router;

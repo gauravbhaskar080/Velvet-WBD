@@ -35,12 +35,9 @@ export default function AdminAllCompanies() {
   };
 
   const fetchData = async () => {
-    const response = await fetch(
-      `${BASE_URL}/velvethomes/admin/allcompanies`,
-      {
-        method: "GET",
-      }
-    );
+    const response = await fetch(`${BASE_URL}/velvethomes/admin/allcompanies`, {
+      method: "GET",
+    });
     const json = await response.json();
     if (json.success) {
       setCompanies(json.company);
@@ -51,6 +48,28 @@ export default function AdminAllCompanies() {
   useEffect(() => {
     fetchData();
   }, []);
+
+  const handleDeleteCompany = async (companyId) => {
+    const response = await fetch(
+      `${BASE_URL}/velvethomes/admin/deletecompany`,
+      {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ id: companyId }),
+      }
+    );
+    const json = await response.json();
+    if (json.success) {
+      // Refresh the customer list after deletion
+      fetchData();
+    } else {
+      // Handle error
+      console.error(json.message);
+    }
+  };
+
   return (
     <div className="AdminHomePage">
       {showLoader ? (
@@ -145,6 +164,22 @@ export default function AdminAllCompanies() {
                         Registered: {extractDate(new Date(s.createdAt))}
                       </div>
                     </div>
+
+                    <button
+                      style={{
+                        backgroundColor: "#7a3e3e",
+                        color: "whitesmoke",
+                        border: "none",
+                        padding: "4px",
+                        borderRadius: "3px",
+                        width: "70px",
+                        marginTop: "5px",
+                      }}
+                      onClick={() => handleDeleteCompany(s._id)}
+                    >
+                      Delete
+                    </button>
+
                     {/* <div className="AdminAllCompaniesBtn">More Details..</div> */}
                   </div>
                 </div>

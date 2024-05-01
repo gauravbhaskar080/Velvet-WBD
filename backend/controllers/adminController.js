@@ -160,13 +160,40 @@ const delivered = async (req, res) => {
 };
 
 
+const deleteCustomer = async (req, res) => {
+  try {
+    await Customer.findByIdAndDelete(req.body.id);
+    return res.json({
+      success: true,
+      message: "Customer deleted successfully",
+    });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ success: false, message: "Internal Server Error" });
+  }
+};
+
+const deleteCompany = async (req, res) => {
+  try {
+    await Company.findByIdAndDelete(req.body.id);
+    return res.json({ success: true, message: "Company deleted successfully" });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ success: false, message: "Internal Server Error" });
+  }
+};
+
+
+
 module.exports = {
-    login,
-    home,
-    allcustomers,
-    allcompanies,
-    deliveries,
-    discountcode,
-    deletediscountcode,
-    delivered,
+  login,
+  home,
+  allcustomers,
+  allcompanies,
+  deliveries,
+  discountcode,
+  deletediscountcode,
+  delivered,
+  deleteCustomer,
+  deleteCompany,
 };

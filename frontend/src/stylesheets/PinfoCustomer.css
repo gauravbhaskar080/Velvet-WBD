@@ -90,13 +90,16 @@ body{
 .PinfoPHead {
     width: 100%;
     font-size: x-large; 
-    text-decoration: underline;
+    /* text-decoration: underline; */
     color: #333; 
     font-weight: bold;
     padding: 10px;
     margin-bottom: 20px;
     background-color: #dadad8; 
-    border-radius: 5px; 
+    /* border-radius: 5px;  */
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    text-align: center;
 }
 
 .PinfoPOrders{
@@ -126,6 +129,7 @@ body{
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2), 0 6px 6px rgba(0, 0, 0, 0.23); 
     /* margin: 10px; */
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; 
+    margin-bottom: 25px;
 }
 
 .PinfoCard:hover {
@@ -153,6 +157,8 @@ body{
     font-weight: 550;
     color: #321E1E;
     padding: 0.5%;
+    height: 30px;
+    overflow-y: hidden;
 }
 .PinfoMainTitleItem{
     width: 100%;

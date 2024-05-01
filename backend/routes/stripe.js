@@ -15,7 +15,7 @@ router.post("/create-checkout-session", async (req, res) => {
       payment_method_types: ["card"],
       line_items: cartItems.map((item) => ({
         price_data: {
-          currency: "usd",
+          currency: "inr",
           product_data: {
             name: item.name,
             images: [item.url],
@@ -28,7 +28,7 @@ router.post("/create-checkout-session", async (req, res) => {
         quantity: item.quantity,
       })),
       mode: "payment",
-      success_url: `${process.env.CLIENT_URL}/checkout-success`,
+      success_url: `${process.env.CLIENT_URL}/velvethomes/pinfo`,
       cancel_url: `https://velvet-wbd.vercel.app/velvethomes/cart`,
     });
 
@@ -48,7 +48,7 @@ router.post("/cart-create-checkout-session", async (req, res) => {
       payment_method_types: ["card"],
       line_items: cartItems.map((item) => ({
         price_data: {
-          currency: "usd",
+          currency: "inr",
           product_data: {
             name: item.title,
             images: [item.images[0]], // Assuming images is an array
@@ -61,7 +61,7 @@ router.post("/cart-create-checkout-session", async (req, res) => {
         quantity: 1, // Quantity of each item is fixed at 1
       })),
       mode: "payment",
-      success_url: `${process.env.CLIENT_URL}/checkout-success`,
+      success_url: `${process.env.CLIENT_URL}/velvethomes/pinfo`,
       cancel_url: `https://velvet-wbd.vercel.app/velvethomes/cart`,
     });
 

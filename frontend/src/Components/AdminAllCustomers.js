@@ -42,6 +42,28 @@ export default function AdminAllCustomers() {
   useEffect(() => {
     fetchData();
   }, []);
+
+  const handleDeleteCustomer = async (customerId) => {
+    const response = await fetch(
+      `${BASE_URL}/velvethomes/admin/deletecustomer`,
+      {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ id: customerId }),
+      }
+    );
+    const json = await response.json();
+    if (json.success) {
+      // Refresh the customer list after deletion
+      fetchData();
+    } else {
+      // Handle error
+      console.error(json.message);
+    }
+  };
+
   return (
     <div className="AdminHomePage">
       {showLoader ? (
@@ -137,6 +159,22 @@ export default function AdminAllCustomers() {
                       Rs. {cust.totalPurchase}/-
                     </div>
                   </div>
+
+                  <button
+                    style={{
+                      backgroundColor: "#7a3e3e",
+                      color: "whitesmoke",
+                      border: "none",
+                      padding: "4px",
+                      borderRadius: "3px",
+                      width: "70px",
+                      marginTop: "5px",
+                    }}
+                    onClick={() => handleDeleteCustomer(cust._id)}
+                  >
+                    Delete
+                  </button>
+
                   {/* <div className="AdminHomeCardDiv" style={{ marginTop: '5px' }}>
                                         <div className="AdminAllCustomersSearchBtn" style={{ marginLeft: '0', width: '100px' }}>See More</div>
                                     </div> */}

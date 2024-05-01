@@ -521,7 +521,7 @@ export default function AdminHomePage() {
                           className="AdminHomeCardDiv"
                           style={{ fontSize: "larger" }}
                         >
-                          {s.product.title}
+                          {s.product.title.split(" ").slice(0, 6).join(" ")}
                         </div>
                         <div className="AdminHomeCardDiv">
                           <div className="AdminHomeCardDivTitle">
