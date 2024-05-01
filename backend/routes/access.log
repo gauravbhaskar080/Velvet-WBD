@@ -1665,3 +1665,9 @@
 ::1 - - [30/Apr/2024:17:09:32 +0000] "POST /velvethomes/seller/updateProduct/65d753a270c61ef891390eed HTTP/1.1" 201 22 "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
 ::1 - - [30/Apr/2024:17:51:07 +0000] "POST /velvethomes/seller/updateProduct/65d753a270c61ef891390eed HTTP/1.1" 201 22 "http://localhost:3000/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
 >>>>>>> 982d895a90c4252fe34d7fd4a58d4938e35b2ea7
+::1 - - [01/May/2024:22:15:55 +0000] "GET /velvethomes/customer/home HTTP/1.1" 200 73676 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
+::1 - - [01/May/2024:22:16:11 +0000] "POST /velvethomes/seller/login HTTP/1.1" 200 191 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
+::1 - - [01/May/2024:22:16:14 +0000] "POST /velvethomes/seller/home HTTP/1.1" 200 78385 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
+::1 - - [01/May/2024:22:16:15 +0000] "POST /velvethomes/seller/showallprods HTTP/1.1" 200 117836 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
+::1 - - [01/May/2024:22:16:39 +0000] "POST /velvethomes/seller/showallprods HTTP/1.1" 200 117836 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
+::1 - - [01/May/2024:22:17:38 +0000] "GET /velvethomes/customer/home HTTP/1.1" 304 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"

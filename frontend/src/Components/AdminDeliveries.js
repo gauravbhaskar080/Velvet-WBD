@@ -125,6 +125,8 @@ export default function AdminDeliveries() {
                       textAlign: "center",
                       width: "100%",
                       justifyContent: "center",
+                      borderBottom: "1px solid black",
+                      width:"80%"
                     }}
                   >
                     {cust.product.title.split(' ').slice(0, 6).join(' ')}
