@@ -3,6 +3,7 @@ import logo from "./logo.jpeg";
 import "../stylesheets/CompanyAllProducts.css";
 import TypingEffect from "./TypingEffect";
 import { BASE_URL } from "../api";
+import CompanyCard from "./CompanyCard";
 
 export default function CompanyAllProducts() {
   const quotes = [
@@ -92,43 +93,9 @@ export default function CompanyAllProducts() {
           {objs.length === 0 ? (
             <div className="CAP-message">0 Products Registered</div>
           ) : (
-            objs.map((o) => (
-              <div className="CLPCard">
-                <img src={o.images[0]} className="CLPCardImg" alt="" />
-
-                <div className="CLP-Main">
-                  <hr style={{ color: "black", width: "90%" }} />
-                  <div
-                    className="CLP-title"
-                    style={{ justifyContent: "center" }}
-                  >
-                    {o.title}
-                  </div>
-                  <hr style={{ color: "black", width: "90%" }} />
-                  <div className="CLP-title">
-                    <div className="CLP-title-head">Price: </div>
-                    <div className="CLP-title-val">Rs. {o.price}/-</div>
-                  </div>
-                  <div className="CLP-title">
-                    <div className="CLP-title-head">Quantity Left: </div>
-                    <div className="CLP-title-val">{o.quantity}</div>
-                  </div>
-                  <div className="CLP-title">
-                    <div className="CLP-title-head">Quantity Sold: </div>
-                    <div className="CLP-title-val">{o.quantitySold}</div>
-                  </div>
-                  <div className="CLP-title">
-                    <div className="CLP-title-head">Registered: </div>
-                    <div className="CLP-title-val">
-                      {getDateString(o.registered)}
-                    </div>
-                  </div>
-                  <div className="CLP-card-btn-con">
-                    <div className="CLP-card-btn">Edit</div>
-                  </div>
-                </div>
-              </div>
-            ))
+            objs.map((o) => 
+              <CompanyCard o={o} fetchData={fetchData}/>
+            )
           )}
         </div>
       </div>

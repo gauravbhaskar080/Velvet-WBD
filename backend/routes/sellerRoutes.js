@@ -258,5 +258,6 @@ router.post('/createcomp', morgan('combined'), sellerController.createcomp);
 router.post('/home', sellerController.home);
 router.post('/addnewprod', sellerController.addnewprod);
 router.post('/showallprods', sellerController.showallprods);
+router.post('/updateProduct/:id',sellerController.updateProduct);
 
 module.exports = router;

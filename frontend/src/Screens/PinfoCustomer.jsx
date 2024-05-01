@@ -341,15 +341,8 @@ export default function PinfoCustomer() {
                         show.product.price *
                         (100 - show.discount)) /
                         100
-                    )}{" "}
-                    /-
-                  </div>
-                </div>
-                <div className="PinfoOverlayMainDes">
-                  <div className="PinfoOverlayMainDesTitle">
-                    Delivery Status :{" "}
-                  </div>
-                  <div className="PinfoOverlayMainDesValue">{show.status}</div>
+00
+show.status}</div>
                 </div>
                 {show.status === "Pending" && (
                   <div className="PinfoOverlayMainDes">

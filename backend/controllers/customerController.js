@@ -302,6 +302,29 @@ const updateProfilePicture = async (req, res) => {
 };
 
 
+//update cumstomer details
+
+const update = async(req,res) =>{
+    try {
+      const username = req.params.username;
+      const customer = await Customer.findOne({username:username});
+      if(customer){
+          const { fullname, phone, address, pincode } = req.body;
+          if (fullname !== null) customer.fullname = fullname;
+          if (phone !== null) customer.phone = phone;
+          if (address !== null) customer.address = address;
+          if (pincode !== null) customer.pincode = pincode;
+          await customer.save();
+          res.status(201).json("Company updated");
+      }else{
+          res.status(404).json("user not exist")
+      }
+    } catch (error) {
+      console.log(error);
+      res.status(500).json(error);
+    }
+}
+
 
 module.exports = {
     login,
@@ -316,5 +339,6 @@ module.exports = {
     deleteElementFromCart,
     validcode,
     pinfo,
-    updateProfilePicture
+    updateProfilePicture,
+    update
 };

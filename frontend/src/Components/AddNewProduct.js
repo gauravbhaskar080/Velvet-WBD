@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../stylesheets/AddNewProduct.css";
 import { useNavigate } from "react-router-dom";
 import { BASE_URL } from "../api.js";
 
-export default function AddNewProduct() {
+export default function AddNewProduct({isSubmitForm,submit}) {
   let navigate = useNavigate();
   const [formData, setFormData] = useState({
     cnpTitle: "",
@@ -39,6 +39,7 @@ export default function AddNewProduct() {
       setFormData({ ...formData, cnpCat: e.target.value, cnpSubcat: "Taps" });
     }
   };
+
   const handleSubCatChange = (e) => {
     setFormData({ ...formData, cnpSubcat: e.target.value });
   };
@@ -57,8 +58,9 @@ export default function AddNewProduct() {
     newArr[ind] = evt.target.value;
     setFormData({ ...formData, [nd]: newArr });
   }
-  async function handleNewElementSubmit(evt) {
-    evt.preventDefault();
+
+  async function handleNewElementSubmit() {
+    // evt.preventDefault();
     const newArrayKeys = formData.cnpFeaturesKeys;
     const newArrayValues = formData.cnpFeaturesValues;
     let s = formData.cnpSubcat;
@@ -92,9 +94,16 @@ export default function AddNewProduct() {
     const json = await response.json();
     if (json.success) {
       const id = json._id;
-      navigate(`velvethomes/seller/allproducts`);
+      // navigate(`velvethomes/seller/allproducts`);
+      submit();
     }
   }
+  useEffect(()=>{
+    if (isSubmitForm) {
+      handleNewElementSubmit();
+    }
+  },[isSubmitForm])
+
   return (
     <div className="cnp-body-wrapper">
       <form
@@ -420,7 +429,7 @@ export default function AddNewProduct() {
             })}
           </div>
         </div>
-        <button className="cnp-btn">Register</button>
+        <button className="cnp-btn" style={{display:"none"}} >Register</button>
       </form>
     </div>
   );
