@@ -12,6 +12,7 @@ import CustomerNavBar from "./Components/CustomerNavBar";
 import ProtectedPages from "./Components/ProtectedPages";
 import CustomerLogin from "./Screens/CustomerLogin";
 
+
 function App() {
   return (
     <Router>

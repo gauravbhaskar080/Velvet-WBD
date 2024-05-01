@@ -4,6 +4,7 @@ import '../stylesheets/home.css'
 import HomeRightDesign from '../Components/HomeRightDesign'
 import HomeLeftDesign from '../Components/HomeLeftDesign'
 import CustomerNavBar from '../Components/CustomerNavBar'
+import Footer from "../Components/Footer";
 import { BASE_URL } from '../api'
 
 export default function Home() {
@@ -52,6 +53,7 @@ export default function Home() {
                   return<HomeLeftDesign key={ind} title={m.title} ind={ind} products={m.products} openid={m.openid} dimg={m.designimg} />
                 })}
             </div>}
+            <Footer/>
     </>
   )
 }
