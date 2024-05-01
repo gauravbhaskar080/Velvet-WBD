@@ -46,22 +46,17 @@ export default function PinfoCustomer() {
     }
   };
 
-
-
   const fetchData = async () => {
     try {
-      const response = await fetch(
-        `${BASE_URL}/velvethomes/customer/pinfo`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            username: localStorage.getItem("customerUsername"),
-          }),
-        }
-      );
+      const response = await fetch(`${BASE_URL}/velvethomes/customer/pinfo`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          username: localStorage.getItem("customerUsername"),
+        }),
+      });
       const json = await response.json();
       if (json.success) {
         setCust({
@@ -82,7 +77,6 @@ export default function PinfoCustomer() {
   useEffect(() => {
     fetchData();
   }, []);
-
 
   const showMoreDetailsDelivered = (ind) => {
     setShow(delivered[ind]);
@@ -214,7 +208,7 @@ export default function PinfoCustomer() {
         </div>
 
         <div className="PinfoPastOrders">
-          <div className="PinfoPHead">Pending Deliveries</div>
+          <div className="PinfoPHead">Pending Deliveries </div>
           <div className="PinfoPOrders">
             {bought.map((evt, ind) => (
               <div className="PinfoCard" key={ind}>
@@ -244,7 +238,7 @@ export default function PinfoCustomer() {
           </div>
         </div>
         <div className="PinfoPastOrders">
-          <div className="PinfoPHead">My Orders</div>
+          <div className="PinfoPHead">My Orders </div>
           <div className="PinfoPOrders">
             {delivered.map((evt, ind) => (
               <div className="PinfoCard" key={ind}>
@@ -341,8 +335,15 @@ export default function PinfoCustomer() {
                         show.product.price *
                         (100 - show.discount)) /
                         100
-00
-show.status}</div>
+                    )}{" "}
+                    /-
+                  </div>
+                </div>
+                <div className="PinfoOverlayMainDes">
+                  <div className="PinfoOverlayMainDesTitle">
+                    Delivery Status :{" "}
+                  </div>
+                  <div className="PinfoOverlayMainDesValue">{show.status}</div>
                 </div>
                 {show.status === "Pending" && (
                   <div className="PinfoOverlayMainDes">
