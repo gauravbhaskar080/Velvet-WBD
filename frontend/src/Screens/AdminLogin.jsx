@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux";
 import { loginAdmin } from "../features/login/loginSlice";
 import { BASE_URL } from "../api";
 import loader from "../Pictures/loader.gif"
+import logo from "./logo.jpeg";
 
 export default function AdminLogin() {
   const navigate = useNavigate();
@@ -208,25 +209,45 @@ export default function AdminLogin() {
               </div>
             </div>
             {wrongInput && (
-                  <div
-                    style={{
-                      display: "flex",
-                      justifyContent: "flex-end",
-                      width: "70%",
-                      fontSize: "large",
-                    }}
-                  >
-                    <div style={{ color: "red" }}>Username Or Email didn't match</div>
-                  </div>
-                )}
-              <div className="btn-clf-wrapper">
-                <button type="submit" onClick={()=>setShowGif(true)} className="btn-submit-company-login">
-                  Sign In
-                </button>
-          {showGif && <img src={loader} className="LoaderGif" alt="" />}
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "flex-end",
+                  width: "70%",
+                  fontSize: "large",
+                }}
+              >
+                <div style={{ color: "red" }}>
+                  Username Or Email didn't match
+                </div>
               </div>
+            )}
+            <div className="btn-clf-wrapper">
+              <button
+                type="submit"
+                onClick={() => setShowGif(true)}
+                className="btn-submit-company-login"
+              >
+                Sign In
+              </button>
+
+              {showGif && <img src={loader} className="LoaderGif" alt="" />}
+            </div>
           </form>
-          
+          <a href="/" style={{ textDecoration: "none" }}>
+            <button
+              className="btn-submit-company-login"
+              style={{
+                // width: "150px",
+                marginBottom: "60%",
+                borderRadius: "5px",
+                marginTop: "20px",
+                textDecoration: "none",
+              }}
+            >
+              Back to home
+            </button>
+          </a>
         </div>
       </div>
     </div>

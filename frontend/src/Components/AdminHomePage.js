@@ -97,7 +97,7 @@ export default function AdminHomePage() {
         totalTurnOver: json.admin.totalBusiness,
         totalProfit: json.admin.totalProfit,
       });
-      setSales(json.sales);
+      setSales(json.sales.reverse());
       setShowSales(json.sales.reverse().splice(0, 3));
       setDc(json.discountcode);
       setMostSeller(json.mostSeller);

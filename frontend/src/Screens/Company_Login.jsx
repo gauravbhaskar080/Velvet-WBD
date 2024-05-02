@@ -4,6 +4,7 @@ import "../stylesheets/companyLogin.css";
 import { useDispatch } from "react-redux";
 import { loginSeller } from "../features/login/loginSlice";
 import { BASE_URL } from "../api";
+import logo from "./logo.jpeg";
 
 export default function Company_Login({ show }) {
   // Variable To Redirect To any Page
@@ -106,19 +107,16 @@ export default function Company_Login({ show }) {
     evt.preventDefault();
     const val = Object.values(isValidInput).every((value) => value === true);
     if (val) {
-      const response = await fetch(
-        `${BASE_URL}/velvethomes/seller/login`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            email: compStateLogin.username,
-            password: compStateLogin.password,
-          }),
-        }
-      );
+      const response = await fetch(`${BASE_URL}/velvethomes/seller/login`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: compStateLogin.username,
+          password: compStateLogin.password,
+        }),
+      });
       const json = await response.json();
       if (!json.success) {
         setWrongInput(true);
@@ -217,6 +215,22 @@ export default function Company_Login({ show }) {
         <div className="design">
           <div className="img-back"></div>
           <div className="overlay-company">
+            <a
+              href="/"
+              style={{
+                marginBottom: "42%",
+              }}
+            >
+              <img
+                src={logo}
+                alt="logo"
+                style={{
+                  width: "150px",
+                  marginBottom: "60%",
+                  borderRadius: "5px",
+                }}
+              />
+            </a>
             <div className="text-company">
               Welcome To <br /> VelvetHome's Seller <br /> {val} Page
             </div>
@@ -226,7 +240,11 @@ export default function Company_Login({ show }) {
           <div className="btns-company-login">
             <div
               className="btn-company-login"
-              style={val === "Login" ? selectedStyle : { height: "50px",backgroundColor:"#4d4d4d" }}
+              style={
+                val === "Login"
+                  ? selectedStyle
+                  : { height: "50px", backgroundColor: "#4d4d4d" }
+              }
               onClick={() => setVal("Login")}
             >
               Sign In
@@ -365,7 +383,9 @@ export default function Company_Login({ show }) {
                       Seems Good
                     </div>
                   ) : (
-                    <div style={{ color: "red" ,fontWeight: "100"}}>Invalid Input</div>
+                    <div style={{ color: "red", fontWeight: "100" }}>
+                      Invalid Input
+                    </div>
                   )}
                 </div>
               </div>
@@ -392,14 +412,19 @@ export default function Company_Login({ show }) {
           )}
           {val === "Sign Up" && (
             <form action="" onSubmit={hadleSignupSubmit} className="clf">
-              { showRedirectedMessage && <div
-                className="input-company-wrapper"
-                style={{ marginTop: "25px" }}
-              >
-                <label className="input-clf-label" style={{color: "black" , marginTop:"20px"}}>
-                  Please SignUp To Continue Your Shopping
-                </label>
-              </div>}
+              {showRedirectedMessage && (
+                <div
+                  className="input-company-wrapper"
+                  style={{ marginTop: "25px" }}
+                >
+                  <label
+                    className="input-clf-label"
+                    style={{ color: "black", marginTop: "20px" }}
+                  >
+                    Please SignUp To Continue Your Shopping
+                  </label>
+                </div>
+              )}
               <div
                 className="input-company-wrapper"
                 style={{ marginTop: "25px" }}

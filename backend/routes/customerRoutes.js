@@ -15,9 +15,14 @@ app.use(cors());
 
 /**
  * @swagger
+ * tags:
+ *   - name: customer
+ *     description: Customer operations
  * /velvethomes/customer/login:
  *   post:
  *     summary: Log in a customer
+ *     tags:
+ *       - customer
  *     description: Endpoint to log in a customer.
  *     requestBody:
  *       required: true
@@ -64,6 +69,8 @@ app.use(cors());
  * /velvethomes/customer/signup:
  *   post:
  *     summary: Sign up a customer
+ *     tags:
+ *       - customer
  *     description: Endpoint to sign up a customer.
  *     requestBody:
  *       required: true
@@ -110,6 +117,8 @@ app.use(cors());
  * /velvethomes/customer/home:
  *   get:
  *     summary: Fetch all products for the home page
+  *     tags:
+ *       - customer
  *     description: Endpoint to fetch all products to be displayed on the home page.
  *     responses:
  *       200:
@@ -147,6 +156,8 @@ app.use(cors());
  * /velvethomes/customer/showallcat:
  *   post:
  *     summary: Fetch details for the category page
+  *     tags:
+ *       - customer
  *     description: Endpoint to fetch details to be shown on the category page.
  *     requestBody:
  *       required: true
@@ -197,6 +208,8 @@ app.use(cors());
  *   post:
  *     summary: Fetch all products of a particular subcategory
  *     description: Endpoint to fetch all products of a particular subcategory.
+  *     tags:
+ *       - customer
  *     requestBody:
  *       required: true
  *       content:
@@ -245,6 +258,8 @@ app.use(cors());
  * /velvethomes/customer/productdetails:
  *   post:
  *     summary: Fetch product details
+  *     tags:
+ *       - customer
  *     description: Endpoint to fetch details of a specific product.
  *     requestBody:
  *       required: true
@@ -290,6 +305,8 @@ app.use(cors());
  * /velvethomes/customer/placeorder:
  *   post:
  *     summary: Place an order
+  *     tags:
+ *       - customer
  *     description: Endpoint to place an order for a product.
  *     requestBody:
  *       required: true
@@ -361,6 +378,8 @@ app.use(cors());
  * /velvethomes/customer/addtocart:
  *   post:
  *     summary: Add a product to the cart
+  *     tags:
+ *       - customer
  *     description: Endpoint to add a product to the cart.
  *     requestBody:
  *       required: true
@@ -424,6 +443,8 @@ app.use(cors());
  * /velvethomes/customer/cartdetails:
  *   post:
  *     summary: Fetch cart details
+  *     tags:
+ *       - customer
  *     description: Endpoint to fetch data to be shown on the My Cart page.
  *     requestBody:
  *       required: true
@@ -494,6 +515,8 @@ app.use(cors());
  * /velvethomes/customer/deleteElementFromCart:
  *   post:
  *     summary: Delete a specific product from the cart
+  *     tags:
+ *       - customer
  *     description: Endpoint to delete a specific product from a particular item from the cart.
  *     requestBody:
  *       required: true
@@ -541,6 +564,8 @@ app.use(cors());
  * /velvethomes/customer/validcode:
  *   post:
  *     summary: Check if a discount code is valid
+  *     tags:
+ *       - customer
  *     description: Endpoint to check if a discount code is valid and applicable.
  *     requestBody:
  *       required: true
@@ -594,6 +619,8 @@ app.use(cors());
  * /velvethomes/customer/pinfo:
  *   post:
  *     summary: Fetch personal information of a user
+  *     tags:
+ *       - customer
  *     description: Endpoint to fetch personal information of a user along with their purchase history.
  *     requestBody:
  *       required: true
@@ -645,6 +672,8 @@ app.use(cors());
  * /velvethomes/customerProfile/upload/{username}:
  *   post:
  *     summary: Update profile picture of a user
+  *     tags:
+ *       - customer
  *     description: Endpoint to update the profile picture of a user.
  *     parameters:
  *       - in: path

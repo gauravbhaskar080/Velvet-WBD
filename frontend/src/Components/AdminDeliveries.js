@@ -41,7 +41,7 @@ export default function AdminDeliveries() {
     const response = await fetch(
       `${BASE_URL}/velvethomes/admin/delivered`,
       {
-        method: "POST",
+        method: "PATCH",
         headers: {
           "Content-Type": "application/json",
         },

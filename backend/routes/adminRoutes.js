@@ -16,9 +16,14 @@ router.use(morgan('combined', { stream: accessLogStream }));
 
 /**
  * @swagger
+  * tags:
+ *   - name: admin
+ *     description: admin operations
  * /velvethomes/admin/login:
  *   post:
  *     summary: Log in as an admin
+ *     tags:
+ *       - admin
  *     description: Endpoint to log in as an admin.
  *     requestBody:
  *       required: true
@@ -66,6 +71,8 @@ router.use(morgan('combined', { stream: accessLogStream }));
  * /velvethomes/admin/home:
  *   get:
  *     summary: Fetch data to be displayed on the admin home page
+  *     tags:
+ *       - admin
  *     description: Endpoint to fetch data to be displayed on the admin home page.
  *     responses:
  *       200:
@@ -127,6 +134,8 @@ router.use(morgan('combined', { stream: accessLogStream }));
  * /velvethomes/admin/allcustomers:
  *   get:
  *     summary: Fetch data of all customers
+  *     tags:
+ *       - admin
  *     description: Endpoint to fetch data of all customers.
  *     responses:
  *       200:
@@ -165,6 +174,8 @@ router.use(morgan('combined', { stream: accessLogStream }));
  * /velvethomes/admin/allcompanies:
  *   get:
  *     summary: Fetch data of all companies
+  *     tags:
+ *       - admin
  *     description: Endpoint to fetch data of all companies.
  *     responses:
  *       200:
@@ -204,6 +215,8 @@ router.use(morgan('combined', { stream: accessLogStream }));
  * /velvethomes/admin/deliveries:
  *   get:
  *     summary: Fetch all delivery data
+  *     tags:
+ *       - admin
  *     description: Endpoint to fetch all delivery data.
  *     responses:
  *       200:
@@ -242,6 +255,8 @@ router.use(morgan('combined', { stream: accessLogStream }));
  * /velvethomes/admin/discountcode:
  *   post:
  *     summary: Add a new discount code
+  *     tags:
+ *       - admin
  *     description: Endpoint to add a new discount code.
  *     requestBody:
  *       required: true
@@ -294,6 +309,8 @@ router.use(morgan('combined', { stream: accessLogStream }));
  * /velvethomes/admin/deletediscountcode:
  *   delete:
  *     summary: Delete a discount code
+  *     tags:
+ *       - admin
  *     description: Endpoint to delete a discount code.
  *     requestBody:
  *       required: true
@@ -341,6 +358,8 @@ router.use(morgan('combined', { stream: accessLogStream }));
  * /velvethomes/admin/delivered:
  *   patch:
  *     summary: Mark a product as delivered
+  *     tags:
+ *       - admin
  *     description: Endpoint to mark a product as delivered.
  *     requestBody:
  *       required: true
@@ -398,6 +417,8 @@ router.patch("/delivered", adminController.delivered);
  * /velvethomes/admin/deletecustomer:
  *   delete:
  *     summary: Delete a customer
+  *     tags:
+ *       - admin
  *     description: Endpoint to delete a customer.
  *     requestBody:
  *       required: true
@@ -458,6 +479,8 @@ router.patch("/delivered", adminController.delivered);
  * /velvethomes/admin/deletecompany:
  *   delete:
  *     summary: Delete a company
+  *     tags:
+ *       - admin
  *     description: Endpoint to delete a company.
  *     requestBody:
  *       required: true

@@ -1,11 +1,11 @@
 .vidcon{
-    height: 500px;
+    height: 550px;
 }
 #homevideo{
     position:absolute;
     right: 0;
     bottom: 0;
-    top: 85px;
+    top: 55px;
     z-index: -1;
     width: 100%;
     align-items: center;
@@ -20,11 +20,12 @@ h1{
     justify-content: center;
     align-items: center;
     margin-bottom: 2em;
+    font-size: x-large;
 }
 .quotes{
-    width: 70%;
-    background-color: #ffffff4f;
-    border-radius: 20px;
+    width: 100%;
+    background-color: #ffffff41;
+    /* border-radius: 20px; */
 }
 @media (max-width: 1450px) {
     .vidcon{

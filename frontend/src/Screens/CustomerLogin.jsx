@@ -4,6 +4,8 @@ import "../stylesheets/companyLogin.css";
 import { useDispatch } from "react-redux";
 import { loginCustomer } from "../features/login/loginSlice";
 import { BASE_URL } from "../api";
+import logo from './logo.jpeg';
+
 const CustomerLogin = ({show}) => {
   // Variable To Redirect To any Page
   let navigate = useNavigate();
@@ -219,6 +221,22 @@ const CustomerLogin = ({show}) => {
         <div className="design">
           <div className="img-back"></div>
           <div className="overlay-company">
+            <a
+              href="/"
+              style={{
+                marginBottom: "42%",
+              }}
+            >
+              <img
+                src={logo}
+                alt="logo"
+                style={{
+                  width: "150px",
+                  marginBottom: "60%",
+                  borderRadius: "5px",
+                }}
+              />
+            </a>
             <div className="text-company">
               Welcome To <br /> VelvetHome's Customer <br /> {val} Page
             </div>
@@ -243,14 +261,16 @@ const CustomerLogin = ({show}) => {
           </div>
           {val === "Login" && (
             <form action="" onSubmit={handleLoginSubmit} className="clf">
-              { showRedirectedMessage && <div
-                className="input-company-wrapper"
-                style={{ marginTop: "25px" }}
-              >
-                <label className="input-clf-label" style={{color: "black"}}>
-                  **Please Login To Continue Your Shopping
-                </label>
-              </div>}
+              {showRedirectedMessage && (
+                <div
+                  className="input-company-wrapper"
+                  style={{ marginTop: "25px" }}
+                >
+                  <label className="input-clf-label" style={{ color: "black" }}>
+                    **Please Login To Continue Your Shopping
+                  </label>
+                </div>
+              )}
               <div
                 className="input-company-wrapper"
                 style={{ marginTop: "25px" }}
@@ -392,20 +412,26 @@ const CustomerLogin = ({show}) => {
           )}
           {val === "Sign Up" && (
             <form action="" onSubmit={hadleSignupSubmit} className="clf">
-              { showRedirectedMessage && <div
-                className="input-company-wrapper"
-                style={{ marginTop: "25px" }}
-              >
-                <label className="input-clf-label" style={{color: "black", marginTop:"20px"}}>
-                  **Please Sign Up To Continue Your Shopping
-                </label>
-              </div>}
+              {showRedirectedMessage && (
+                <div
+                  className="input-company-wrapper"
+                  style={{ marginTop: "25px" }}
+                >
+                  <label
+                    className="input-clf-label"
+                    style={{ color: "black", marginTop: "20px" }}
+                  >
+                    **Please Sign Up To Continue Your Shopping
+                  </label>
+                </div>
+              )}
               <div
                 className="input-company-wrapper"
                 style={{ marginTop: "25px" }}
               >
                 <label htmlFor="companyname" className="input-clf-label">
-                  Enter Your Full Name : <span className="required-span">*</span>
+                  Enter Your Full Name :{" "}
+                  <span className="required-span">*</span>
                 </label>
                 <input
                   type="text"

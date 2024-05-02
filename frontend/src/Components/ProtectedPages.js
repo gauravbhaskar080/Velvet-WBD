@@ -1,5 +1,5 @@
-import React from 'react'
-import { useSelector } from 'react-redux'
+import {React,useEffect}  from 'react'
+import { useSelector,useDispatch} from 'react-redux'
 import ShowProduct from '../Screens/ShowProduct';
 import BNBill from '../Screens/BNBill';
 import Cart from '../Screens/Cart';
@@ -9,11 +9,27 @@ import CompanyLogin from '../Screens/Company_Login';
 import AdminHome from '../Screens/AdminHome';
 import AdminLogin from '../Screens/AdminLogin';
 import CustomerLogin from '../Screens/CustomerLogin';
+import { loginCustomer } from '../features/login/loginSlice';
+
 
 const ProtectedPages = ({ component }) => {
     const isCustomerLoggedIn = useSelector(state => state.isCustomerLoggedIn);
     const isSellerLoggedIn = useSelector(state => state.isSellerLoggedIn);
     const isAdminLoggedIn = useSelector(state => state.isAdminLoggedIn);
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+      if (
+        component === "ShowProduct" ||
+        component === "BNBill" ||
+        component === "Cart" ||
+        component === "pinfo"
+      ) {
+        if (localStorage.getItem("customerUsername") !== "") {
+          dispatch(loginCustomer());
+        }
+      }
+    }, []);
     return (
         <>
             {(component === "ShowProduct" || component === "BNBill" || component === "Cart" || component === "pinfo") && <>

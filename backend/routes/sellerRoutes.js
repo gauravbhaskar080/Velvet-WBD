@@ -16,9 +16,14 @@ router.use(morgan('combined', { stream: accessLogStream }));
 
 /**
  * @swagger
+ * tags:
+ *   - name: company
+ *     description:  company operations
  * /velvethomes/seller/login:
  *   post:
  *     summary: Log in as a company
+ *     tags:
+ *       - company
  *     description: Endpoint to log in as a company.
  *     requestBody:
  *       required: true
@@ -67,6 +72,8 @@ router.use(morgan('combined', { stream: accessLogStream }));
  * /velvethomes/seller/create:
  *   post:
  *     summary: Create a new company
+  *     tags:
+ *       - company
  *     description: Endpoint to create a new company.
  *     requestBody:
  *       required: true
@@ -109,6 +116,8 @@ router.use(morgan('combined', { stream: accessLogStream }));
  * /velvethomes/seller/home:
  *   post:
  *     summary: Get company home page details
+  *     tags:
+ *       - company
  *     description: Endpoint to get company home page details.
  *     requestBody:
  *       required: true
@@ -153,6 +162,8 @@ router.use(morgan('combined', { stream: accessLogStream }));
  * /velvethomes/seller/addnewprod:
  *   post:
  *     summary: Add a new product
+  *     tags:
+ *       - company
  *     description: Endpoint to add a new product.
  *     requestBody:
  *       required: true
@@ -213,6 +224,8 @@ router.use(morgan('combined', { stream: accessLogStream }));
  * /velvethomes/seller/showallprods:
  *   post:
  *     summary: Get all products registered by the company
+  *     tags:
+ *       - company
  *     description: Endpoint to get all products registered by the company.
  *     requestBody:
  *       required: true

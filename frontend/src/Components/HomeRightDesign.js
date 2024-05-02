@@ -1,7 +1,7 @@
 import React from 'react'
 import {Link} from 'react-router-dom';
 import "../stylesheets/category.css"
-import logo from '../logo.jpeg'
+import logo from './logo.jpeg'
 import HomeProductCard from './HomeProductCard';
 
 export default function HomeRightDesign({title,dimg,ind,products,openid}) {
@@ -20,7 +20,7 @@ export default function HomeRightDesign({title,dimg,ind,products,openid}) {
               <div className="overlay">
               <Link to={nextLink}>
                       <div className="text">
-                          <div><img src={logo} alt="" /></div>
+                          <div><img src={logo} alt="" style={{width:"150px"}} /></div>
                           <div>Velvet Homes</div>
                           <div>( {title} )</div>
                       </div>
