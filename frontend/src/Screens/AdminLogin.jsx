@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { loginAdmin } from "../features/login/loginSlice";
 import { BASE_URL } from "../api";
+import loader from "../Pictures/loader.gif"
 
 export default function AdminLogin() {
   const navigate = useNavigate();
@@ -222,7 +223,7 @@ export default function AdminLogin() {
                 <button type="submit" onClick={()=>setShowGif(true)} className="btn-submit-company-login">
                   Sign In
                 </button>
-          {showGif && <img src="https://i.gifer.com/ZZ5H.gif" className="LoaderGif" alt="" />}
+          {showGif && <img src={loader} className="LoaderGif" alt="" />}
               </div>
           </form>
           

@@ -6,6 +6,8 @@ import HomeLeftDesign from '../Components/HomeLeftDesign'
 import CustomerNavBar from '../Components/CustomerNavBar'
 import Footer from "../Components/Footer";
 import { BASE_URL } from '../api'
+import loader from "../Pictures/loader.gif";
+
 
 export default function Home() {
   const [prods,setProds] = useState([]);
@@ -40,7 +42,7 @@ export default function Home() {
         </div>
         <h1><div className="quotes">Experience the power of exceptional design.</div></h1>
         {showLoader ? <div className="AdminLoadercon">
-                <img src='https://i.gifer.com/70bm.gif' alt='' className='AdminLoader' />
+                <img src={loader} alt='' className='AdminLoader' />
                 <span className='AdminLoaderText'>
                     Velvet Home's Products are Loading...
                 </span>
