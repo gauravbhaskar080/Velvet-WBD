@@ -779,6 +779,8 @@ router.post(
   customerController.updateProfilePicture
 );
 
+router.post("/placeorderfromcart", customerController.PlaceOrderForCart);
+
 router.post('/update/:username', customerController.update);
 
 module.exports = router;

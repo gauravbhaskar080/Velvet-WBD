@@ -114,7 +114,7 @@ export default function Cart() {
     }
   };
 
-  const placeOrder = async function () {
+  const Payment = async function () {
     try {
       const response = await fetch(
         `${BASE_URL}/stripe/cart-create-checkout-session`,
@@ -133,6 +133,33 @@ export default function Cart() {
       // Handle error (e.g., display an error message)
     }
   };
+
+  const PlaceOrder = async()=>{
+    try {
+       const response = await fetch(`${BASE_URL}/velvethomes/customer/placeorderfromcart`,{
+        method:'POST',
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          code: code,
+          qty:qty,
+          discount:discount,
+          username: localStorage.getItem("customerUsername"),
+        }),
+       })
+       if(response.status === 201){
+            navigate('/velvehomes/pinfo');
+       }
+    } catch (error) {
+       console.log(error)
+    }
+  }
+
+  const handlePlace = async()=>{
+      await Payment();
+      await  PlaceOrder();
+  }
 
 
   return (
@@ -227,7 +254,7 @@ export default function Cart() {
           </div>
           {show && <div className="coupon-code-message">**{message}</div>}
           <div className="CartBillBtnWrapper">
-            <div className="CartBillBtn" onClick={placeOrder}>Place Order</div>
+            <div className="CartBillBtn" onClick={handlePlace}>Place Order</div>
           </div>
         </div>
       </div>

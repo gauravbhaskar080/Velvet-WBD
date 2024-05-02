@@ -382,6 +382,45 @@ const update = async (req, res) => {
   }
 };
 
+// place order from the Cart
+ const PlaceOrderForCart = async(req,res)=>{
+        console.log(req.body);
+        const cust = await Customer.findOne({ username: req.body.username })
+        const discount = parseInt(req.body.discount)
+        const ca = await Cart.findOne({ username: req.body.username }).populate('product');
+        const qty = req.body.qty;
+        const admin = await Admin.findOne()
+        for (let i = 0; i < qty.length; i++) {
+            const obj = await Object.findById(ca.product[i]);
+            const comp = await Company.findOne({ username: obj.companyusername })
+            const qty1 = parseInt(qty[i])
+            const placeorder = new Bought();
+            placeorder.username = req.body.username
+            placeorder.product = obj
+            placeorder.quantity = qty1
+            placeorder.orderDate = new Date()
+            placeorder.status = "Pending"
+            placeorder.deliveryDate = new Date(placeorder.orderDate.getTime() + (7 * 24 * 60 * 60 * 1000));
+            placeorder.companyName = comp.username
+            placeorder.discount = discount
+            obj.quantity -= qty1;
+            placeorder.couponcode = req.body.couponcode
+            comp.totalbusiness += Math.floor(qty1 * obj.price * (100 - obj.margin) / 100);
+            admin.totalBusiness += Math.floor(qty1 * obj.price * (100 - discount) / 100);
+            admin.totalProfit += (Math.floor(qty1 * obj.price * (100 - discount) / 100) - Math.floor(qty1 * obj.price * (100 - obj.margin) / 100));
+            cust.totalBusiness += Math.floor(qty1 * obj.price * (100 - discount) / 100)
+            console.log(placeorder);
+            await comp.save();
+            await obj.save();
+            await placeorder.save()
+        }
+        ca.product = [];
+        await ca.save();
+        await admin.save();
+        await cust.save();
+        return res.status(201).json({success: true});
+ }
+
 module.exports = {
   login,
   signup,
@@ -397,4 +436,5 @@ module.exports = {
   pinfo,
   updateProfilePicture,
   update,
+  PlaceOrderForCart
 };
