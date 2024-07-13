@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import video from './home-video.mp4'
+import video from './video-home.mp4'
 import '../stylesheets/home.css'
 import HomeRightDesign from '../Components/HomeRightDesign'
 import HomeLeftDesign from '../Components/HomeLeftDesign'
