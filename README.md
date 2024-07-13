@@ -33,7 +33,7 @@ This project is a E-commerce Site: Explore a wide range of home interior items i
    Navigate to the project directory and run:
 
    ```bash
-   cd Chat-App
+   cd Velvet-WBD
 
    cd frontend
    npm install
@@ -41,7 +41,7 @@ This project is a E-commerce Site: Explore a wide range of home interior items i
    npm install
    ```
 
-3. **Set up MongoDB:**
+3. **Set up .env:**
 
    - Create a `.env` file in the root directory and add your MongoDB URL:
 
@@ -87,25 +87,30 @@ This project is a E-commerce Site: Explore a wide range of home interior items i
 - `frontend/`: Contains the React frontend.
   - `public/`: Holds static files like CSS, images, and JavaScript.
   - `src/`: Contains the main source code.
-    - `components/`: React components used in the application.
-    - `animations/`: Animations used for UI elements.
-    - `config/`: Configuration files.
-    - `context/`: React context providers.
-    - `Pages/`: Different pages of the application.
+    - `Components/`: React components used in the application.
+    - `features\login`: Redux ToolKit for Login & Logout. 
+    - `Pictures/`: All the images that use in website.
+    - `redux/`: Import Login from features and configureStore , to create centralized store.
+    - `Screens/`: Website pages used in the application.
+    - `stylesheets/`: All the style pages used in website.
+    - `api.js`: In this file your deployed backend link, that deployed on render. 
     - `App.js`: The main application component.
     - `index.js`: Entry point of the React application.
-    - `theme.js`: Contains theme-related styling.
+    - `dockerfile` : All commands for frontend deployment on docker
+   
 - `backend/`: Contains the Node.js backend.
-  - `config/`: Configuration files.
   - `controllers/`: Controllers for handling routes and data.
   - `data/`: Sample data for initial setup.
   - `middleware/`: Custom middleware functions.
   - `models/`: Mongoose models for MongoDB.
   - `public/`: Static files.
   - `routes/`: Express.js route handlers.
-  - `server.js`: Entry point of the Node.js application.
   - `.env`: Configuration file for environment variables.
+  - `dockerfile` : All commands for backend deployment on docker
+  - `index.js`: Entry point of the Node.js application.
 
+- `docker-compose.yml`: Run commands for frontend dockerfile & backend dockerfile
+  
 ## Contributing
 
 If you'd like to contribute to this project, please follow these steps:
