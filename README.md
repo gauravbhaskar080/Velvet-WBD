@@ -18,7 +18,7 @@ This project is a E-commerce Site: Explore a wide range of home interior items i
 
 ## Demo
 
-[Link to Demo](https://velvet-wbd.vercel.app/)
+[Velvet Homes](https://velvet-wbd.vercel.app/)
 
 ## Setup
 
