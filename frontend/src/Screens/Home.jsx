@@ -25,7 +25,7 @@ export default function Home() {
     const json = await response.json();
     if(json.success){
       setProds(json.objects);
-      console.log(json.objects)
+      // console.log(json.objects)
       setShowLoader(false);
     }
   }
