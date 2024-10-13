@@ -40,7 +40,7 @@ const stripeRouter = require("./routes/stripe");
 
 // Configure CORS
 const corsOptions = {
-  origin: ["https://velvet-wbd.vercel.app", "http://localhost:3000"],
+  origin: ["https://velvet-wbd.vercel.app", "http://localhost:3000","https://velvet-home.vercel.app"],
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
   credentials: true,
 };
